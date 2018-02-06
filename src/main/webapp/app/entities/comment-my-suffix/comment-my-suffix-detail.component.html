@@ -1,0 +1,40 @@
+
+<div *ngIf="comment">
+    <h2><span jhiTranslate="innovationPortalApp.comment.detail.title">Comment</span> {{comment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="innovationPortalApp.comment.commentSummary">Comment Summary</span></dt>
+        <dd>
+            <span>{{comment.commentSummary}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.comment.datePosted">Date Posted</span></dt>
+        <dd>
+            <span>{{comment.datePosted | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.comment.commentedBy">Commented By</span></dt>
+        <dd>
+            <span>{{comment.commentedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.comment.idea">Idea</span></dt>
+        <dd>
+            <div *ngIf="comment.idea">
+                <a [routerLink]="['/idea-my-suffix', comment.idea?.id]">{{comment.idea?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'comment-my-suffix/'+ comment.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

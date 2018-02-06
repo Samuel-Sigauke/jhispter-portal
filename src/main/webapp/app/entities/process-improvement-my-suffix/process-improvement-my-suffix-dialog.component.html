@@ -1,0 +1,53 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProcessImprovementLabel" jhiTranslate="innovationPortalApp.processImprovement.home.createOrEditLabel">Create or edit a Process Improvement</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!processImprovement.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="processImprovement.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.processImprovement.problemName" for="field_problemName">Problem Name</label>
+            <input type="text" class="form-control" name="problemName" id="field_problemName"
+                [(ngModel)]="processImprovement.problemName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.processImprovement.problemDesc" for="field_problemDesc">Problem Desc</label>
+            <input type="text" class="form-control" name="problemDesc" id="field_problemDesc"
+                [(ngModel)]="processImprovement.problemDesc" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.processImprovement.category" for="field_category">Category</label>
+            <select class="form-control" name="category" [(ngModel)]="processImprovement.category" id="field_category" >
+                <option value="IT">{{'innovationPortalApp.Category.IT' | translate}}</option>
+                <option value="PAYMENTS">{{'innovationPortalApp.Category.PAYMENTS' | translate}}</option>
+                <option value="SALES">{{'innovationPortalApp.Category.SALES' | translate}}</option>
+                <option value="MARKETING">{{'innovationPortalApp.Category.MARKETING' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.processImprovement.rating" for="field_rating">Rating</label>
+            <select class="form-control" name="rating" [(ngModel)]="processImprovement.rating" id="field_rating" >
+                <option value="BELOW_AVERAGE">{{'innovationPortalApp.Rating.BELOW_AVERAGE' | translate}}</option>
+                <option value="AVERAGE">{{'innovationPortalApp.Rating.AVERAGE' | translate}}</option>
+                <option value="ABOVE_AVERAGE">{{'innovationPortalApp.Rating.ABOVE_AVERAGE' | translate}}</option>
+                <option value="GREAT">{{'innovationPortalApp.Rating.GREAT' | translate}}</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRatingLabel" jhiTranslate="innovationPortalApp.rating.home.createOrEditLabel">Create or edit a Rating</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!rating.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="rating.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.rating.ratingPoints" for="field_ratingPoints">Rating Points</label>
+            <select class="form-control" name="ratingPoints" [(ngModel)]="rating.ratingPoints" id="field_ratingPoints" >
+                <option value="ONE">{{'innovationPortalApp.RatingPoints.ONE' | translate}}</option>
+                <option value="TWO">{{'innovationPortalApp.RatingPoints.TWO' | translate}}</option>
+                <option value="THREE">{{'innovationPortalApp.RatingPoints.THREE' | translate}}</option>
+                <option value="FOUR">{{'innovationPortalApp.RatingPoints.FOUR' | translate}}</option>
+                <option value="FIVE">{{'innovationPortalApp.RatingPoints.FIVE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.rating.ratedBy" for="field_ratedBy">Rated By</label>
+            <input type="text" class="form-control" name="ratedBy" id="field_ratedBy"
+                [(ngModel)]="rating.ratedBy" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.rating.dateRated" for="field_dateRated">Date Rated</label>
+            <div class="d-flex">
+                <input id="field_dateRated" type="datetime-local" class="form-control" name="dateRated" [(ngModel)]="rating.dateRated"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="innovationPortalApp.rating.idea" for="field_idea">Idea</label>
+            <select class="form-control" id="field_idea" name="idea" [(ngModel)]="rating.idea" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ideaOption.id === rating.idea?.id ? rating.idea : ideaOption" *ngFor="let ideaOption of ideas; trackBy: trackIdeaById">{{ideaOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

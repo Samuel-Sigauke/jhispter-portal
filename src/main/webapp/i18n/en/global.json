@@ -7,6 +7,12 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "ideaMySuffix": "Idea",
+                "commentMySuffix": "Comment",
+                "processImprovementMySuffix": "Process Improvement",
+                "innovationChallengeMySuffix": "Innovation Challenge",
+                "categoryMySuffix": "Category",
+                "ratingMySuffix": "Rating",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

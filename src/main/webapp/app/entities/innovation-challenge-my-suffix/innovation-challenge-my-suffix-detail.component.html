@@ -1,0 +1,52 @@
+
+<div *ngIf="innovationChallenge">
+    <h2><span jhiTranslate="innovationPortalApp.innovationChallenge.detail.title">Innovation Challenge</span> {{innovationChallenge.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.challengeName">Challenge Name</span></dt>
+        <dd>
+            <span>{{innovationChallenge.challengeName}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.challengeDescription">Challenge Description</span></dt>
+        <dd>
+            <span>{{innovationChallenge.challengeDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.dateCreated">Date Created</span></dt>
+        <dd>
+            <span>{{innovationChallenge.dateCreated | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{innovationChallenge.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.endDate">End Date</span></dt>
+        <dd>
+            <span>{{innovationChallenge.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{innovationChallenge.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.innovationChallenge.category">Category</span></dt>
+        <dd>
+            <div *ngIf="innovationChallenge.category">
+                <a [routerLink]="['/category-my-suffix', innovationChallenge.category?.id]">{{innovationChallenge.category?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'innovation-challenge-my-suffix/'+ innovationChallenge.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

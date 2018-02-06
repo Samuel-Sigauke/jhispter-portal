@@ -1,0 +1,192 @@
+
+<div *ngIf="idea">
+    <h2><span jhiTranslate="innovationPortalApp.idea.detail.title">Idea</span> {{idea.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="innovationPortalApp.idea.ideaTitle">Idea Title</span></dt>
+        <dd>
+            <span>{{idea.ideaTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.idea.ideaSummary">Idea Summary</span></dt>
+        <dd>
+            <span>{{idea.ideaSummary}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.idea.dateCreated">Date Created</span></dt>
+        <dd>
+            <span>{{idea.dateCreated | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.idea.postedBy">Posted By</span></dt>
+        <dd>
+            <span>{{idea.postedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.idea.inovationChallenge">Inovation Challenge</span></dt>
+        <dd>
+            <div *ngIf="idea.inovationChallenge">
+                <a [routerLink]="['/innovation-challenge-my-suffix', idea.inovationChallenge?.id]">{{idea.inovationChallenge?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button class="btn btn-primary float-right jh-create-entity create-rating-my-suffix" [routerLink]="['/', { outlets: { popup: ['rating-my-suffix-new'] } }]">
+        <span class="fa fa-plus"></span>
+        <span  jhiTranslate="innovationPortalApp.rating.home.createLabel">
+        Create new Rating
+        </span>
+    </button>
+
+</div>
+<link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-521cbf980c80.css" integrity="sha512-Uhy/mAyAx1HfsenmjQ85ASpOk5bjt2Ay03pNeixXIvkHlEm5S+N4u0HWfDGhvsGYx4bGyviXWGGPZeIffqYcNA==" media="all" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-f75b395c95ee.css" integrity="sha512-91s5XJXuYfLeHJoeobMe4FgEnU0IIJNpD/SfZ5MQOVZ7CnKZ4/KLOusHqNFqOJVJVBWgJ9G+6w+jxVVpJ1aKxw==" media="all" rel="stylesheet" />
+
+<div class="timeline-comment">
+        <input type="hidden" name="issue" value="16618">
+          <div class="js-suggester-container js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=45717250&amp;subject=16618&amp;subject_type=PullRequest" data-preview-authenticity-token="rM80IIodc3HY1AK4O86MtlUCJ2Pg67Ky1vczXqfKJM7+CJLUKBcTZuMVxI7+gpO6lHGwluk35lbUQvCno27FeA==">
+  <div class="comment-form-head tabnav">
+      <div class="js-toolbar toolbar-commenting">
+  <div class="toolbar-group">
+    <div class="toolbar-item dropdown js-menu-container">
+      <div class="dropdown-menu-content js-menu-content">
+        <ul class="dropdown-menu dropdown-menu-s">
+         <button type="button" class="js-toolbar-item dropdown-item dropdown-header3" data-prefix="### " data-ga-click="Markdown Toolbar, click, header3">
+            Header
+          </button>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toolbar-group">
+  </div>
+
+  <div class="toolbar-group">
+  </div>
+
+  <div class="toolbar-group">
+
+      <div class="toolbar-item select-menu select-menu-modal-right js-menu-container js-select-menu js-load-contents js-saved-reply-container" data-contents-url="/settings/replies?context=pull_request_comment">
+
+
+        <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+          <div class="select-menu-modal">
+            <div class="select-menu-header">
+
+              <span class="select-menu-title">Select a reply</span>
+              <kbd>ctrl .</kbd>
+            </div>
+            <div class="js-select-menu-deferred-content"></div>
+            <div class="select-menu-loading-overlay anim-pulse">
+              <svg aria-hidden="true" class="octicon octicon-octoface" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"></path></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+      <nav class="tabnav-tabs" role="tablist">
+        <button type="button" class="btn-link tabnav-tab write-tab js-write-tab selected" role="tab" aria-selected="true">Write</button>
+
+      </nav>
+  </div>
+
+  <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled" data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="DDCKkij/84oJWyZ/0w5hnSTJabvQFh6nUprxy2TG529ntLLI7ISes6ByckfziezHUkfLg21DgSRUisyU1PLzpg==" data-upload-repository-id="45717250">
+
+    <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
+
+    <textarea [(ngModel)]="newComment" name="comment[body]" id="new_comment_field" placeholder="Leave a comment" aria-label="Comment body" class="form-control input-contrast comment-form-textarea js-comment-field js-improved-comment-field js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-quote-selection-target js-session-resumable "></textarea>
+
+        <p class="drag-and-drop position-relative">
+    <input accept=".gif,.jpeg,.jpg,.png,.docx,.gz,.log,.pdf,.pptx,.txt,.xlsx,.zip" type="file" multiple="multiple" class="manual-file-chooser top-0 right-0 bottom-0 left-0 width-full ml-0 js-manual-file-chooser" aria-label="Attach files to your comment">
+    <span class="default">
+        Attach files by dragging &amp; dropping,
+        <span class="btn-link manual-file-chooser-text">selecting them</span>, or pasting
+        from the clipboard.
+    </span>
+    <span class="loading">
+      <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16"> Uploading your files…
+    </span>
+    <!-- <span class="error bad-file">
+      We don’t support that file type.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a
+        GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
+      </span>
+    </span>
+    <span class="error bad-permissions">
+      Attaching documents requires write permission to this repository.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
+      </span>
+    </span>
+    <span class="error repository-required">
+      We don’t support that file type.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
+      </span>
+    </span>
+    <span class="error too-big">
+      Yowza, that’s a big file
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file smaller than 10MB.
+      </span>
+    </span>
+    <span class="error empty">
+      This file is empty.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file that’s not empty.
+      </span>
+    </span>
+    <span class="error hidden-file">
+      This file is hidden.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with another file.
+      </span>
+    </span>
+    <span class="error failed-request">
+      Something went really wrong, and we can’t process that file.
+      <span class="drag-and-drop-error-info">
+        <button type="button" class="btn-link manual-file-chooser-text">Try again.</button>
+      </span>
+    </span> -->
+  </p>
+
+
+    <div class="suggester-container">
+      <div class="suggester js-suggester js-navigation-container" data-url="/suggestions/pull_request/166201815?repository=tensorflow&amp;user_id=tensorflow" data-log-mention-url="/suggestions/log_mention?repository=tensorflow&amp;user_id=tensorflow" data-log-mention-authenticity-token="d7h3HaOvbncaXpGKMamKFu5/XUB1cLhI5wxQjKvgGsQXVYqNZl4c3IAiSM6FUsrc7YNXGlzTkELlXb4gs3xcLw==">
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-content">
+    <div class="comment">
+  <div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"><p>Nothing to preview</p></div>
+</div>
+
+  </div>
+
+  <div class="float-left">
+      <a class="tabnav-extra" href="https://guides.github.com/features/mastering-markdown/" target="_blank" data-ga-click="Markdown Toolbar, click, help">
+
+      </a>
+  </div>
+  <div class="comment-form-error comment-form-bottom js-comment-update-error"></div>
+</div>
+
+          <div class="form-actions">
+            <div id="partial-new-comment-form-actions" class="js-socket-channel js-updatable-content" data-channel="issue:293081500:state" data-url="/tensorflow/tensorflow/pull/16618/show_partial?partial=pull_requests%2Fform_actions">
+              <button type="submit"
+                      (click)="previousState()"
+                      class="btn btn-info">
+                  <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
+              </button>
+  <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
+    Comment
+  </button>
+
+{{newComment}}
+
+</div>
+   </div>
+      </div>

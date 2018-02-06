@@ -7,8 +7,9 @@ Main page styles
     display: inline-block;
     width: 347px;
     height: 497px;
-    background: url("../../content/images/hipster.png") no-repeat center top;
+    background: url("../../content/images/image6.jpg") no-repeat center top;
     background-size: contain;
+
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
@@ -20,7 +21,7 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
     .hipster {
-        background: url("../../content/images/hipster2x.png") no-repeat center top;
+        background: url("../../content/images/image6.jpg") no-repeat center top;
         background-size: contain;
     }
 }

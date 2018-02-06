@@ -1,0 +1,27 @@
+{
+    "innovationPortalApp": {
+        "innovationChallenge" : {
+            "home": {
+                "title": "Innovation Challenges",
+                "createLabel": "Create a new Innovation Challenge",
+                "createOrEditLabel": "Create or edit a Innovation Challenge"
+            },
+            "created": "A new Innovation Challenge is created with identifier {{ param }}",
+            "updated": "A Innovation Challenge is updated with identifier {{ param }}",
+            "deleted": "A Innovation Challenge is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Innovation Challenge {{ id }}?"
+            },
+            "detail": {
+                "title": "Innovation Challenge"
+            },
+            "challengeName": "Challenge Name",
+            "challengeDescription": "Challenge Description",
+            "dateCreated": "Date Created",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "createdBy": "Created By",
+            "category": "Category"
+        }
+    }
+}

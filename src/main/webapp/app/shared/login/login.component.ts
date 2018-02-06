@@ -71,6 +71,8 @@ export class JhiLoginModalComponent implements AfterViewInit {
         }).catch(() => {
             this.authenticationError = true;
         });
+
+              this.router.navigate(['/idea-my-suffix']);
     }
 
     register() {

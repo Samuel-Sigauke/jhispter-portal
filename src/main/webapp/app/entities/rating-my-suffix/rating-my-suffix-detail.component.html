@@ -1,0 +1,40 @@
+
+<div *ngIf="rating">
+    <h2><span jhiTranslate="innovationPortalApp.rating.detail.title">Rating</span> {{rating.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="innovationPortalApp.rating.ratingPoints">Rating Points</span></dt>
+        <dd>
+            <span jhiTranslate="{{'innovationPortalApp.RatingPoints.' + rating.ratingPoints}}">{{rating.ratingPoints}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.rating.ratedBy">Rated By</span></dt>
+        <dd>
+            <span>{{rating.ratedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.rating.dateRated">Date Rated</span></dt>
+        <dd>
+            <span>{{rating.dateRated | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="innovationPortalApp.rating.idea">Idea</span></dt>
+        <dd>
+            <div *ngIf="rating.idea">
+                <a [routerLink]="['/idea-my-suffix', rating.idea?.id]">{{rating.idea?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rating-my-suffix/'+ rating.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

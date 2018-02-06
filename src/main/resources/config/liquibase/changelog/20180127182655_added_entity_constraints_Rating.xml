@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Rating.
+    -->
+    <changeSet id="20180127182655-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="idea_id"
+                                 baseTableName="rating"
+                                 constraintName="fk_rating_idea_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="idea"/>
+
+    </changeSet>
+</databaseChangeLog>
