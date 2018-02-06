@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "idea",
+            "otherEntityName": "idea",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "ratingPoints",
+            "fieldType": "RatingPoints",
+            "fieldValues": "ONE,TWO,THREE,FOUR,FIVE"
+        },
+        {
+            "fieldName": "ratedBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateRated",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20180127182655",
+    "entityTableName": "rating",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

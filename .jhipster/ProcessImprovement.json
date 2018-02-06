@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comment",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "processImprovement"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "problemName",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "problemDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "Category",
+            "fieldValues": "IT,PAYMENTS,SALES,MARKETING"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Rating",
+            "fieldValues": "BELOW_AVERAGE,AVERAGE,ABOVE_AVERAGE,GREAT"
+        }
+    ],
+    "changelogDate": "20180127152441",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "process_improvement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

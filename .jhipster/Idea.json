@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "inovationChallenge",
+            "otherEntityName": "innovationChallenge",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "ideaTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ideaSummary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "postedBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180127152439",
+    "entityTableName": "idea",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

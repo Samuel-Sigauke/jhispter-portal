@@ -8,6 +8,9 @@ import { IdeaMySuffixService } from './idea-my-suffix.service';
 import {AccountService, ITEMS_PER_PAGE, Principal, ResponseWrapper} from '../../shared';
 import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
 import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
+import { OnRatingChangeEven } from 'angular-star-rating';
+import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
+import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
 
 @Component({
     selector: 'jhi-idea-my-suffix-detail',
@@ -15,6 +18,7 @@ import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.ser
 })
 export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     newComment: string;
+    newRating = 1;
     idea: IdeaMySuffix;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
@@ -54,22 +58,31 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
     sendComment(idea){
-      console.log("Method Being called")
-      let comment = new CommentMySuffix(
-        null,
-        this.newComment,
-        new Date(),
-        this.loginUser.login,
-        this.idea,
+        console.log('Method Being called')
+        let comment = new CommentMySuffix(
+          null,
+          this.newComment,
+          new Date(),
+          this.loginUser.login,
+          this.idea
+        );
 
-
-      );
-
-      this.commentMySuffixService.create(comment).subscribe((resp) => {
-          console.log(resp);
-      });
-
+        this.commentMySuffixService.create(comment).subscribe((resp) => {
+            console.log(resp);
+        });
     }
+
+    onRatingChange = ($event:OnRatingChangeEven) => {
+        console.log('onRatingUpdated $event: ', $event);
+        console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.THREE)
+        this.newRating = $event.rating;
+
+      /*  let rating = new RatingMySuffix(
+          null,
+          this.new
+        )*/
+
+    };
 
     registerChangeInIdeas() {
         this.eventSubscriber = this.eventManager.subscribe(

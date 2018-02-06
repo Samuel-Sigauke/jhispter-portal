@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "idea",
+            "otherEntityName": "idea",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "commentSummary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "datePosted",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "commentedBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180127152440",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "comment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

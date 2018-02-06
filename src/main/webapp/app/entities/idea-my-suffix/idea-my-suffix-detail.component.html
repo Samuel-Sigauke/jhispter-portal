@@ -28,12 +28,7 @@
         </dd>
     </dl>
 
-    <button class="btn btn-primary float-right jh-create-entity create-rating-my-suffix" [routerLink]="['/', { outlets: { popup: ['rating-my-suffix-new'] } }]">
-        <span class="fa fa-plus"></span>
-        <span  jhiTranslate="innovationPortalApp.rating.home.createLabel">
-        Create new Rating
-        </span>
-    </button>
+<star-rating-comp [starType]="'icon'" [rating]="myrating" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
 
 </div>
 <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-521cbf980c80.css" integrity="sha512-Uhy/mAyAx1HfsenmjQ85ASpOk5bjt2Ay03pNeixXIvkHlEm5S+N4u0HWfDGhvsGYx4bGyviXWGGPZeIffqYcNA==" media="all" rel="stylesheet" />
@@ -184,8 +179,8 @@
   <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
     Comment
   </button>
-
 {{newComment}}
+
 
 </div>
    </div>
