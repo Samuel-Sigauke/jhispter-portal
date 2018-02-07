@@ -103,6 +103,15 @@ public class RatingResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(rating));
     }
 
+
+
+    @GetMapping("/ratings-by-user/{ratedBy}")
+    @Timed
+    public List<Rating> getAllRatingsByRatedBy(@PathVariable String ratedBy) {
+        log.debug("REST request to get all Ratings");
+        return ratingRepository.findAllByRatedBy(ratedBy);
+        }
+
     /**
      * DELETE  /ratings/:id : delete the "id" rating.
      *

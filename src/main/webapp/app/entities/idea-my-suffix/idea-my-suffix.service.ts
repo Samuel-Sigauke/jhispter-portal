@@ -73,7 +73,7 @@ export class IdeaMySuffixService {
     private convert(idea: IdeaMySuffix): IdeaMySuffix {
         const copy: IdeaMySuffix = Object.assign({}, idea);
 
-        copy.dateCreated = this.dateUtils.toDate(idea.dateCreated);
+      //  copy.dateCreated = this.dateUtils.toDate(idea.dateCreated);
         return copy;
     }
 }

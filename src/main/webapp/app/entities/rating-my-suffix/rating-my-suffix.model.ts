@@ -1,11 +1,11 @@
 import { BaseEntity } from './../../shared';
 
 export const enum RatingPoints {
-    'ONE',
-    'TWO',
-    'THREE',
-    'FOUR',
-    'FIVE'
+    ONE=0,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE
 }
 
 export class RatingMySuffix implements BaseEntity {

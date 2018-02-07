@@ -73,7 +73,7 @@ export class RatingMySuffixService {
     private convert(rating: RatingMySuffix): RatingMySuffix {
         const copy: RatingMySuffix = Object.assign({}, rating);
 
-        copy.dateRated = this.dateUtils.toDate(rating.dateRated);
+        //copy.dateRated = this.dateUtils.toDate(rating.dateRated);
         return copy;
     }
 }

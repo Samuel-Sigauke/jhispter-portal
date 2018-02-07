@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager } from 'ng-jhipster';
-
 import { IdeaMySuffix } from './idea-my-suffix.model';
 import { IdeaMySuffixService } from './idea-my-suffix.service';
 import {AccountService, ITEMS_PER_PAGE, Principal, ResponseWrapper} from '../../shared';
@@ -30,13 +29,13 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private accountService: AccountService,
         private commentMySuffixService:CommentMySuffixService,
+        private ratingMySuffixService:RatingMySuffixService
     ) {
         accountService.get().subscribe((resp)=> {
-        this.loginUser=resp;
-        console.log(this.loginUser=resp)
+             this.loginUser=resp;
+             console.log(this.loginUser=resp)
       });
     }
-
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
@@ -66,24 +65,30 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
           this.loginUser.login,
           this.idea
         );
-
         this.commentMySuffixService.create(comment).subscribe((resp) => {
             console.log(resp);
         });
     }
-
     onRatingChange = ($event:OnRatingChangeEven) => {
         console.log('onRatingUpdated $event: ', $event);
-        console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.THREE)
+        console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.ONE)
         this.newRating = $event.rating;
 
+        let rating = new RatingMySuffix(
+        null,
+        this.newRating-1,
+        this.loginUser.login,
+        new Date(),
+        this.idea
+      );
+      this.ratingMySuffixService.create(rating).subscribe((resp) => {
+        console.log(resp);
+      });
       /*  let rating = new RatingMySuffix(
           null,
           this.new
         )*/
-
-    };
-
+    }
     registerChangeInIdeas() {
         this.eventSubscriber = this.eventManager.subscribe(
             'ideaListModification',
