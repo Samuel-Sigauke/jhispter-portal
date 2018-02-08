@@ -183,3 +183,25 @@
 </div>
    </div>
       </div>
+      <div class="table-responsive" *ngIf="comments">
+          <table class="table table-striped">
+              <thead>
+              <tr>
+
+              <th><span jhiTranslate="innovationPortalApp.comment.commentSummary">Comment Summary</span></th>
+              <th><span jhiTranslate="innovationPortalApp.comment.datePosted">Date Posted</span></th>
+              <th><span jhiTranslate="innovationPortalApp.comment.commentedBy">Commented By</span></th>
+
+              <th></th>
+              </tr>
+              </thead>
+      <tbody>
+      <tr *ngFor="let comment of comments ;trackBy: trackId">
+
+        <td>{{comment.commentSummary}}</td>
+        <td>{{comment.datePosted | date:'medium'}}</td>
+        <td>{{comment.commentedBy}}</td>
+
+          
+                </tbody>
+      </div>

@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-
 import { IdeaMySuffix } from './idea-my-suffix.model';
 import { IdeaMySuffixService } from './idea-my-suffix.service';
 import { Principal, ResponseWrapper } from '../../shared';
-
+import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
+import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
 @Component({
     selector: 'jhi-idea-my-suffix',
     templateUrl: './idea-my-suffix.component.html'

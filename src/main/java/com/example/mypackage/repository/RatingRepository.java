@@ -13,5 +13,5 @@ import org.springframework.data.jpa.repository.*;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
-List<Rating> findAllByRatedBy (String ratedBy)
+//List<Rating> findAllByRatedBy (String ratedBy);
 }

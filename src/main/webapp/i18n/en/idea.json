@@ -2,8 +2,8 @@
     "innovationPortalApp": {
         "idea" : {
             "home": {
-                "title": "Ideas",
-                "createLabel": "Create a new Idea",
+                "title": "Posted Ideas",
+                "createLabel": "Post a new Idea",
                 "createOrEditLabel": "Create or edit a Idea"
             },
             "created": "A new Idea is created with identifier {{ param }}",

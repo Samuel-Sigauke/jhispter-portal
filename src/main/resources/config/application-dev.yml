@@ -41,7 +41,7 @@ spring:
 
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mariadb://localhost:3000/InnovationP?createDatabaseIfNotExist=true
+        url: jdbc:mariadb://localhost:3000/hub?createDatabaseIfNotExist=true
         username: root
         password: root
         hikari:
@@ -102,7 +102,7 @@ liquibase:
 #        key-alias: InnovationPortal
 # ===================================================================
 server:
-    port: 9070
+    port: 8080
 
 # ===================================================================
 # JHipster specific properties

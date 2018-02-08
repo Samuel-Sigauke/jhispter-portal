@@ -1,10 +1,17 @@
+<head>
+  <title>page</title>
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-98cac35b43fab8341490a2623fdaa7b696bbaea87bccf8f485fd5cdb4996cd9b52bdb24709fb3bab0a0dcff4a29187d65028ee693d609ce5c0c3283c77a247a9.css" integrity="sha512-mMrDW0P6uDQUkKJiP9qntpa7rqh7zPj0hf1c20mWzZtSvbJHCfs7qwoNz/SikYfWUCjuaT1gnOXAwyg8d6JHqQ==" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-95eea2bd803aed490d7f80bcb2ee29159d69b493e4736d7929a32d93940aa8f1e9434a8320f8f574212bb7e0d8635ae95df44a034d231acb434af04089ff8cd4.css" integrity="sha512-le6ivYA67UkNf4C8su4pFZ1ptJPkc215KaMtk5QKqPHpQ0qDIPj1dCErt+DYY1rpXfRKA00jGstDSvBAif+M1A==" media="all" rel="stylesheet" />
+</head>
+
 <div>
     <h2>
-        <span jhiTranslate="innovationPortalApp.idea.home.title">Ideas</span>
+        <span jhiTranslate="innovationPortalApp.idea.home.title">Posted Ideas</span>
         <button class="btn btn-primary float-right jh-create-entity create-idea-my-suffix" [routerLink]="['/', { outlets: { popup: ['idea-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="innovationPortalApp.idea.home.createLabel">
-            Create a new Idea
+            Post a new Idea
             </span>
         </button>
     </h2>
@@ -12,27 +19,206 @@
     <div class="row">
     </div>
     <br/>
-    <div class="table-responsive" *ngIf="ideas">
+    <!-- new code starts here -->
+<div class="container-fluid">
+<div class="card jh-card">
+<router-outlet></router-outlet>
+  <jhi-ticket _nghost-c3="" class="ng-star-inserted">
+    <div _ngcontent-c3="" role="main">
+      <div _ngcontent-c3="" itemscope="" itemtype="http://schema.org/SoftwareSourceCode">
+        <div _ngcontent-c3="" data-pjax-container="" id="js-repo-pjax-container">
+          <div _ngcontent-c3="" class="container new-discussion-timeline experiment-repo-nav">
+            <div _ngcontent-c3="" class="repository-content">
+              <div _ngcontent-c3="" class="issues-listing" data-pjax="">
+                <div _ngcontent-c3="" class="subnav" data-pjax="">
+
+                  <div _ngcontent-c3="" class="float-left subnav-spacer-right" role="search">
+                    <form _ngcontent-c3="" accept-charset="UTF-8" action="/jhipster/generator-jhipster/issues" class="subnav-search float-left ng-untouched ng-pristine ng-valid" data-pjax="true" method="get" novalidate="">
+                      <div _ngcontent-c3="" style="margin:0;padding:0;display:inline">
+                        <input _ngcontent-c3="" name="utf8" type="hidden" value="✓">
+                      </div>
+                      <input _ngcontent-c3="" aria-label="Search all issues" class="form-control form-control subnav-search-input input-contrast" data-hotkey="/" id="js-issues-search" name="q" placeholder="Search all ideas" type="text" value="">
+                        <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-search subnav-search-icon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+                          <path _ngcontent-c3="" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z" fill-rule="evenodd">
+                          </path>
+                        </svg>
+                      </form>
+                    </div>
+                  </div>
+                  <div _ngcontent-c3="" class="table-list-header" id="js-issues-toolbar">
+                    <div _ngcontent-c3="" class="table-list-filters">
+                      <div _ngcontent-c3="" class="table-list-header-toggle states float-left pl-3">
+                        <a _ngcontent-c3="" class="btn-link selected">
+                          <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
+                            <path _ngcontent-c3="" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z" fill-rule="evenodd">
+                            </path>
+                          </svg> 2 Ideas
+                        </a>
+                        <a _ngcontent-c3="" class="btn-link">
+                          <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+                            <path _ngcontent-c3="" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z" fill-rule="evenodd"></path>
+                          </svg> 0 Viewed
+                        </a>
+                      </div>
+                      <div _ngcontent-c3="" class="table-list-header-toggle float-right">
+                        <div _ngcontent-c3="" class="float-left select-menu js-menu-container js-select-menu js-transitionable">
+                          <mat-form-field _ngcontent-c3="" class="mat-input-container mat-form-field ng-tns-c4-0 mat-form-field-type-mat-select mat-form-field-can-float mat-form-field-hide-placeholder mat-primary">
+                            <div class="mat-input-wrapper mat-form-field-wrapper">
+                              <div class="mat-input-flex mat-form-field-flex"></div>
+                                <label class="mat-form-field-label mat-input-placeholder mat-form-field-placeholder ng-tns-c4-2 mat-empty mat-form-field-empty ng-star-inserted" ng-reflect-ng-switch="false" for="mat-select-1" aria-owns="mat-select-1"></label>
+                            </div>
+                        </div>
+                        <div class="mat-input-underline mat-form-field-underline">
+                          <span class="mat-input-ripple mat-form-field-ripple"></span>
+                        </div>
+                        <div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper" ng-reflect-ng-switch="hint">
+                          <div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c4-2 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                            <div class="mat-input-hint-spacer mat-form-field-hint-spacer">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div _ngcontent-c3="" class="border-right border-bottom border-left">
+              <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
+                            <li *ngFor="let idea of ideas" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
+                              <div _ngcontent-c3="" class="d-table table-fixed width-full Box-row--drag-hide position-relative">
+                                <div _ngcontent-c3="" class="float-left pt-2 pl-3">
+                                 <span _ngcontent-c3="" aria-label="Open issue" class="tooltipped tooltipped-n">
+                                    <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
+                                      <path _ngcontent-c3="" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z" fill-rule="evenodd"></path>
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div _ngcontent-c3="" class="float-left pt-2 pl-2"> </div>
+                                <div _ngcontent-c3="" class="float-left col-9 p-2 lh-condensed">
+                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" href="#/ticket/1"> {{idea.ideaTitle}}:  </a>
+                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" href="#/ticket/1"> {{idea.ideaSummary}}... </a>
+                                  <span _ngcontent-c3="" class="labels">
+                                    <!--<label _ngcontent-c3="" aria-label="ticket status" class="label v-align-text-top labelstyle-5472AE linked-labelstyle-5472AE tooltipped tooltipped-s closed" ng-reflect-klass="label v-align-text-top labelst" ng-reflect-ng-class="[object Object]"> CLOSED </label> -->
+                                  </span>
+                                </div>
+                                <div _ngcontent-c3="" class="float-right col-2">
+
+                                  <div _ngcontent-c3="" class="float-right col-6 no-wrap pt-1 pr-3 text-right">
+                                    <button type="submit"
+                                            [routerLink]="['../idea-my-suffix', idea.id ]"
+                                            class="btn btn-info btn-sm">
+                                        <span class="fa fa-eye"></span>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    </button>
+                                      <!--<a _ngcontent-c3="" aria-label="comments" class="muted-link" >
+                                      <svg  _ngcontent-c3="" aria-hidden="true" class="octicon octicon-comment v-align-middle" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+                                         <path _ngcontent-c3="" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z" fill-rule="evenodd"></path>
+                                       </svg>
+                                       <span _ngcontent-c3="" class="text-small text-bold ng-star-inserted">0</span>
+                                    </a> -->
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+
+                          </ul>
+                        </div>
+                        <!-- <div _ngcontent-c3="" class="paginate-container">
+                          <div _ngcontent-c3="" class="ng-star-inserted">
+                            <div _ngcontent-c3="" class="row justify-content-center">
+                              <jhi-item-count _ngcontent-c3="" ng-reflect-page="1" ng-reflect-total="58" ng-reflect-items-per-page="20">
+                                <div class="info jhi-item-count ng-star-inserted" jhitranslate="global.item-count" ng-reflect-jhi-translate="global.item-count" ng-reflect-translate-values="{first: '1', second: '20', tot" translatevalues="{first: '1', second: '20', total: '58'}">
+                                  <span>Showing 1 - 20 of 58 items.</span>
+                                </div>
+                              </jhi-item-count>
+                            </div>
+                            <div _ngcontent-c3="" class="row justify-content-center">
+                              <ngb-pagination _ngcontent-c3="" role="navigation" ng-reflect-boundary-links="true" ng-reflect-rotate="true" ng-reflect-collection-size="58" ng-reflect-max-size="5" ng-reflect-page="1" ng-reflect-page-size="20">
+                                <ul class="pagination">
+                                  <li class="page-item ng-star-inserted disabled">
+                                    <a aria-label="First" class="page-link" href="" tabindex="-1">
+                                      <span aria-hidden="true">««</span>
+                                    </a>
+                                  </li>
+                                <li class="page-item ng-star-inserted disabled">
+                                  <a aria-label="Previous" class="page-link" href="" tabindex="-1">
+                                    <span aria-hidden="true">«</span>
+                                  </a>
+                                </li>
+                                <li class="page-item ng-star-inserted active">
+                                  <a class="page-link ng-star-inserted" href="">
+                                    1
+                                    <span class="sr-only ng-star-inserted">(current)</span>
+                                  </a>
+                                </li>
+                                <li class="page-item ng-star-inserted">
+                                  <a class="page-link ng-star-inserted" href="">
+                                    2
+                                  </a>
+                                </li>
+                                <li class="page-item ng-star-inserted">
+                                  <a class="page-link ng-star-inserted" href="">
+                                    3
+                                  </a>
+                                </li>
+                                    <li class="page-item ng-star-inserted">
+                                      <a aria-label="Next" class="page-link" href="">
+                                        <span aria-hidden="true">»</span>
+                                      </a>
+                                    </li>
+                                    <li class="page-item ng-star-inserted">
+                                      <a aria-label="Last" class="page-link" href="">
+                                        <span aria-hidden="true">»»</span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </ngb-pagination>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </jhi-ticket> <router-outlet name="popup"></router-outlet>
+          </div>
+        <!--  <jhi-footer>
+            <div align="center" class="footer">
+              <small>© Copyright 2018
+                <a href="https://www.stewardbank.co.zw/">STERWARD | BANK</a>
+              </small>
+            </div>
+          </jhi-footer> -->
+
+<!-- new code ends here -->
+<!--  div class="table-responsive" *ngIf="ideas">
         <table class="table table-striped">
             <thead>
             <tr>
-
-            <th><span jhiTranslate="innovationPortalApp.idea.ideaTitle">Idea Title</span></th>
-            <th><span jhiTranslate="innovationPortalApp.idea.ideaSummary">Idea Summary</span></th>
-            <th><span jhiTranslate="innovationPortalApp.idea.dateCreated">Date Created</span></th>
-            <th><span jhiTranslate="innovationPortalApp.idea.postedBy">Posted By</span></th>
-
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="portalApp.idea.ideaTitle">Idea Title</span></th>
+            <th><span jhiTranslate="portalApp.idea.ideaSummary">Idea Summary</span></th>
+            <th><span jhiTranslate="portalApp.idea.dateCreated">Date Created</span></th>
+            <th><span jhiTranslate="portalApp.idea.postedBy">Posted By</span></th>
+            <th><span jhiTranslate="portalApp.idea.inovationChallenge">Inovation Challenge</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let idea of ideas ;trackBy: trackId">
-
+                <td><a [routerLink]="['../idea-my-suffix', idea.id ]">{{idea.id}}</a></td>
                 <td>{{idea.ideaTitle}}</td>
                 <td>{{idea.ideaSummary}}</td>
                 <td>{{idea.dateCreated | date:'medium'}}</td>
                 <td>{{idea.postedBy}}</td>
-
+                <td>
+                    <div *ngIf="idea.inovationChallenge">
+                        <a [routerLink]="['../innovation-challenge-my-suffix', idea.inovationChallenge?.id ]" >{{idea.inovationChallenge?.id}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
@@ -41,7 +227,14 @@
                             <span class="fa fa-eye"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'idea-my-suffix/'+ idea.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'idea-my-suffix/'+ idea.id + '/delete'} }]"
                                 replaceUrl="true"
@@ -55,5 +248,5 @@
             </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>

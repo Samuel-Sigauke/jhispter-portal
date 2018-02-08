@@ -19,6 +19,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     newComment: string;
     newRating = 1;
     idea: IdeaMySuffix;
+    comments:CommentMySuffix[];
     private subscription: Subscription;
     private eventSubscriber: Subscription;
     loginUser: any;
@@ -46,12 +47,25 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     load(id) {
         this.ideaService.find(id).subscribe((idea) => {
             this.idea = idea;
+            this.loadComments();
+
         });
     }
     previousState() {
         window.history.back();
     }
 
+   loadComments(){
+    this.commentMySuffixService.query().subscribe((resp)=>{
+      console.log('rter', resp.json);
+      this.comments = resp.json.filter((comment) => {
+        return comment.idea.id===this.idea.id;
+      });
+      this.comments.sort(
+        (cmt1, cmt2) => { return cmt1.datePosted < cmt2.datePosted ? 1 : -1; }
+      );
+    });
+  }
     ngOnDestroy() {
         this.subscription.unsubscribe();
         this.eventManager.destroy(this.eventSubscriber);
@@ -67,6 +81,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         );
         this.commentMySuffixService.create(comment).subscribe((resp) => {
             console.log(resp);
+            this.loadComments();
         });
     }
     onRatingChange = ($event:OnRatingChangeEven) => {
