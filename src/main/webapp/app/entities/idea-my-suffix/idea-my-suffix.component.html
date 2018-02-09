@@ -1,14 +1,20 @@
-<head>
-  <title>page</title>
+<style>
+  .btn-primary {
+    color: #fff;
+    background-color: #650b7a;
+    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
+  }
+
+
+</style>
 
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-98cac35b43fab8341490a2623fdaa7b696bbaea87bccf8f485fd5cdb4996cd9b52bdb24709fb3bab0a0dcff4a29187d65028ee693d609ce5c0c3283c77a247a9.css" integrity="sha512-mMrDW0P6uDQUkKJiP9qntpa7rqh7zPj0hf1c20mWzZtSvbJHCfs7qwoNz/SikYfWUCjuaT1gnOXAwyg8d6JHqQ==" media="all" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-95eea2bd803aed490d7f80bcb2ee29159d69b493e4736d7929a32d93940aa8f1e9434a8320f8f574212bb7e0d8635ae95df44a034d231acb434af04089ff8cd4.css" integrity="sha512-le6ivYA67UkNf4C8su4pFZ1ptJPkc215KaMtk5QKqPHpQ0qDIPj1dCErt+DYY1rpXfRKA00jGstDSvBAif+M1A==" media="all" rel="stylesheet" />
-</head>
 
 <div>
     <h2>
         <span jhiTranslate="innovationPortalApp.idea.home.title">Posted Ideas</span>
-        <button class="btn btn-primary float-right jh-create-entity create-idea-my-suffix" [routerLink]="['/', { outlets: { popup: ['idea-my-suffix-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-idea-my-suffix"  [routerLink]="['/', { outlets: { popup: ['idea-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="innovationPortalApp.idea.home.createLabel">
             Post a new Idea
@@ -57,7 +63,7 @@
                         <a _ngcontent-c3="" class="btn-link">
                           <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12">
                             <path _ngcontent-c3="" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z" fill-rule="evenodd"></path>
-                          </svg> 0 Viewed
+                          </svg> 2 Viewed
                         </a>
                       </div>
                       <div _ngcontent-c3="" class="table-list-header-toggle float-right">
@@ -111,7 +117,17 @@
                                         <span class="fa fa-eye"></span>
                                         <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                                     </button>
-                                      <!--<a _ngcontent-c3="" aria-label="comments" class="muted-link" >
+
+                                    <!--  <button type="submit"
+                                              [routerLink]="['/', { outlets: { popup: 'idea-my-suffix/'+ idea.id + '/delete'} }]"
+                                              replaceUrl="true"
+                                              queryParamsHandling="merge"
+                                              class="btn btn-danger btn-sm">
+                                          <span class="fa fa-remove"></span>
+                                          <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                      </button>
+
+                                      <a _ngcontent-c3="" aria-label="comments" class="muted-link" >
                                       <svg  _ngcontent-c3="" aria-hidden="true" class="octicon octicon-comment v-align-middle" height="16" version="1.1" viewBox="0 0 16 16" width="16">
                                          <path _ngcontent-c3="" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z" fill-rule="evenodd"></path>
                                        </svg>

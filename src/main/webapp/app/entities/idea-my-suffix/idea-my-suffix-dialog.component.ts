@@ -34,6 +34,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+
         this.innovationChallengeService.query()
             .subscribe((res: ResponseWrapper) => { this.innovationchallenges = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -44,6 +45,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
+
         if (this.idea.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.ideaService.update(this.idea));
@@ -61,6 +63,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
     private onSaveSuccess(result: IdeaMySuffix) {
         this.eventManager.broadcast({ name: 'ideaListModification', content: 'OK'});
         this.isSaving = false;
+        new Date();
         this.activeModal.dismiss(result);
     }
 

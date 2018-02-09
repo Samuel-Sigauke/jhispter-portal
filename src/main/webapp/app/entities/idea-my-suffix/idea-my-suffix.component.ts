@@ -14,7 +14,6 @@ export class IdeaMySuffixComponent implements OnInit, OnDestroy {
 ideas: IdeaMySuffix[];
     currentAccount: any;
     eventSubscriber: Subscription;
-
     constructor(
         private ideaService: IdeaMySuffixService,
         private jhiAlertService: JhiAlertService,
@@ -22,7 +21,6 @@ ideas: IdeaMySuffix[];
         private principal: Principal
     ) {
     }
-
     loadAll() {
         this.ideaService.query().subscribe(
             (res: ResponseWrapper) => {
@@ -53,4 +51,15 @@ ideas: IdeaMySuffix[];
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
+
+    /*sendDate(){
+        let newdate = new IdeaMySuffix(
+          null,
+          new Date()
+        );
+        this.IdeaMySuffixService.create(newdate).subscribe((resp) => {
+            console.log(resp);
+        });
+    }*/
+
 }

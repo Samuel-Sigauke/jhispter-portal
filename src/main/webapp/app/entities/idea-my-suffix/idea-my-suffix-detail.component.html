@@ -1,4 +1,12 @@
 
+<style>
+  .btn-primary {
+    color: #fff;
+    background-color: #650b7a;
+    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
+  }
+
+</style>
 <div *ngIf="idea">
     <h2><span jhiTranslate="innovationPortalApp.idea.detail.title">Idea</span> {{idea.id}}</h2>
     <hr>
@@ -103,49 +111,7 @@
     <span class="loading">
       <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16"> Uploading your files…
     </span>
-    <!-- <span class="error bad-file">
-      We don’t support that file type.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a
-        GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
-      </span>
-    </span>
-    <span class="error bad-permissions">
-      Attaching documents requires write permission to this repository.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
-      </span>
-    </span>
-    <span class="error repository-required">
-      We don’t support that file type.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a GIF, JPEG, JPG, PNG, DOCX, GZ, LOG, PDF, PPTX, TXT, XLSX or ZIP.
-      </span>
-    </span>
-    <span class="error too-big">
-      Yowza, that’s a big file
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file smaller than 10MB.
-      </span>
-    </span>
-    <span class="error empty">
-      This file is empty.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with a file that’s not empty.
-      </span>
-    </span>
-    <span class="error hidden-file">
-      This file is hidden.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again</button> with another file.
-      </span>
-    </span>
-    <span class="error failed-request">
-      Something went really wrong, and we can’t process that file.
-      <span class="drag-and-drop-error-info">
-        <button type="button" class="btn-link manual-file-chooser-text">Try again.</button>
-      </span>
-    </span> -->
+
   </p>
 
 
@@ -202,6 +168,6 @@
         <td>{{comment.datePosted | date:'medium'}}</td>
         <td>{{comment.commentedBy}}</td>
 
-          
+
                 </tbody>
       </div>
