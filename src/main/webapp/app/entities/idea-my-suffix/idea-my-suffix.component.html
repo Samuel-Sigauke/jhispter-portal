@@ -12,8 +12,7 @@
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-95eea2bd803aed490d7f80bcb2ee29159d69b493e4736d7929a32d93940aa8f1e9434a8320f8f574212bb7e0d8635ae95df44a034d231acb434af04089ff8cd4.css" integrity="sha512-le6ivYA67UkNf4C8su4pFZ1ptJPkc215KaMtk5QKqPHpQ0qDIPj1dCErt+DYY1rpXfRKA00jGstDSvBAif+M1A==" media="all" rel="stylesheet" />
 
 <div>
-    <h2>
-        <span jhiTranslate="innovationPortalApp.idea.home.title">Posted Ideas</span>
+    <!--<h2>
         <button class="btn btn-primary float-right jh-create-entity create-idea-my-suffix"  [routerLink]="['/', { outlets: { popup: ['idea-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="innovationPortalApp.idea.home.createLabel">
@@ -24,9 +23,17 @@
     <jhi-alert></jhi-alert>
     <div class="row">
     </div>
-    <br/>
+    <br/> -->
     <!-- new code starts here -->
 <div class="container-fluid">
+  <h2>
+      <button class="btn btn-primary float-right jh-create-entity create-idea-my-suffix"  [routerLink]="['/', { outlets: { popup: ['idea-my-suffix-new'] } }]">
+          <span class="fa fa-plus"></span>
+          <span  jhiTranslate="innovationPortalApp.idea.home.createLabel">
+          Post a new Idea
+          </span>
+      </button>
+  </h2>
 <div class="card jh-card">
 <router-outlet></router-outlet>
   <jhi-ticket _nghost-c3="" class="ng-star-inserted">
@@ -55,15 +62,10 @@
                     <div _ngcontent-c3="" class="table-list-filters">
                       <div _ngcontent-c3="" class="table-list-header-toggle states float-left pl-3">
                         <a _ngcontent-c3="" class="btn-link selected">
-                          <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
-                            <path _ngcontent-c3="" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z" fill-rule="evenodd">
-                            </path>
-                          </svg> 2 Ideas
+                           2 Ideas
                         </a>
                         <a _ngcontent-c3="" class="btn-link">
-                          <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12">
-                            <path _ngcontent-c3="" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z" fill-rule="evenodd"></path>
-                          </svg> 2 Viewed
+                           2 Viewed
                         </a>
                       </div>
                       <div _ngcontent-c3="" class="table-list-header-toggle float-right">
@@ -95,15 +97,17 @@
                               <div _ngcontent-c3="" class="d-table table-fixed width-full Box-row--drag-hide position-relative">
                                 <div _ngcontent-c3="" class="float-left pt-2 pl-3">
                                  <span _ngcontent-c3="" aria-label="Open issue" class="tooltipped tooltipped-n">
-                                    <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14">
-                                      <path _ngcontent-c3="" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z" fill-rule="evenodd"></path>
-                                    </svg>
+                                   <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+                                     <path _ngcontent-c3="" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z" fill-rule="evenodd"></path>
+                                   </svg>
                                   </span>
                                 </div>
-                                <div _ngcontent-c3="" class="float-left pt-2 pl-2"> </div>
+
                                 <div _ngcontent-c3="" class="float-left col-9 p-2 lh-condensed">
-                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" href="#/ticket/1"> {{idea.ideaTitle}}:  </a>
-                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" href="#/ticket/1"> {{idea.ideaSummary}}... </a>
+                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]"> {{idea.ideaTitle}}:  </a>
+                                  <!--<a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]"> {{idea.ideaSummary}}... </a> -->
+                                  <a _ngcontent-c3="" class="link-gray-dark no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">By {{idea.postedBy}}  </a>
+
                                   <span _ngcontent-c3="" class="labels">
                                     <!--<label _ngcontent-c3="" aria-label="ticket status" class="label v-align-text-top labelstyle-5472AE linked-labelstyle-5472AE tooltipped tooltipped-s closed" ng-reflect-klass="label v-align-text-top labelst" ng-reflect-ng-class="[object Object]"> CLOSED </label> -->
                                   </span>
@@ -111,12 +115,12 @@
                                 <div _ngcontent-c3="" class="float-right col-2">
 
                                   <div _ngcontent-c3="" class="float-right col-6 no-wrap pt-1 pr-3 text-right">
-                                    <button type="submit"
+                                  <!--  <button type="submit"
                                             [routerLink]="['../idea-my-suffix', idea.id ]"
                                             class="btn btn-info btn-sm">
                                         <span class="fa fa-eye"></span>
                                         <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                                    </button>
+                                    </button>-->
 
                                     <!--  <button type="submit"
                                               [routerLink]="['/', { outlets: { popup: 'idea-my-suffix/'+ idea.id + '/delete'} }]"
@@ -125,14 +129,14 @@
                                               class="btn btn-danger btn-sm">
                                           <span class="fa fa-remove"></span>
                                           <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                                      </button>
+                                      </button> -->
 
-                                      <a _ngcontent-c3="" aria-label="comments" class="muted-link" >
+                                      <a _ngcontent-c3="" aria-label="comments" class="link-gray-dark no-underline h4 js-navigation-open" [routerLink]="['../idea-my-suffix', idea.id ]" >
                                       <svg  _ngcontent-c3="" aria-hidden="true" class="octicon octicon-comment v-align-middle" height="16" version="1.1" viewBox="0 0 16 16" width="16">
                                          <path _ngcontent-c3="" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z" fill-rule="evenodd"></path>
                                        </svg>
                                        <span _ngcontent-c3="" class="text-small text-bold ng-star-inserted">0</span>
-                                    </a> -->
+                                    </a>
                                   </div>
                                 </div>
                               </div>

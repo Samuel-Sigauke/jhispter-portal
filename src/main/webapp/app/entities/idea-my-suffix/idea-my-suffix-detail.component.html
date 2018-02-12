@@ -8,7 +8,7 @@
 
 </style>
 <div *ngIf="idea">
-    <h2><span jhiTranslate="innovationPortalApp.idea.detail.title">Idea</span> {{idea.id}}</h2>
+
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
@@ -135,22 +135,41 @@
   </div>
   <div class="comment-form-error comment-form-bottom js-comment-update-error"></div>
 </div>
-
-          <div class="form-actions">
+<div class="form-actions">
             <div id="partial-new-comment-form-actions" class="js-socket-channel js-updatable-content" data-channel="issue:293081500:state" data-url="/tensorflow/tensorflow/pull/16618/show_partial?partial=pull_requests%2Fform_actions">
               <button type="submit"
                       (click)="previousState()"
                       class="btn btn-info">
-                  <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
+                  <span class=""></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
               </button>
   <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
     Comment
   </button>
-</div>
-   </div>
-      </div>
-      <div class="table-responsive" *ngIf="comments">
-          <table class="table table-striped">
+          </div>
+        </div>
+
+      <!--  <div class="container-fluid"> -->
+      <!--  <div class="card jh-card">-->
+
+
+                    <div _ngcontent-c3="" class="border-right border-bottom border-left">
+                      <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
+                                    <li *ngFor="let comment of comments ;trackBy: trackId" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
+                                      <div _ngcontent-c3="" class="float-left col-12 p-2 lh-condensed">
+                                          <p >
+                                            <b>{{comment.commentedBy}}</b>
+                                            {{comment.commentSummary}}
+                                            <br>
+                                            {{comment.datePosted | date:'medium'}}
+
+                                          </p>
+                                        </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                <!--  </div>-->
+
+        <!--  <table class="table table-striped">
               <thead>
               <tr>
 
@@ -169,5 +188,4 @@
         <td>{{comment.commentedBy}}</td>
 
 
-                </tbody>
-      </div>
+      </tbody> -->
