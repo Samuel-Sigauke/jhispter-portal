@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StarRatingModule } from 'angular-star-rating';
+import { MomentModule } from 'angular2-moment';
 
 import { InnovationPortalSharedModule } from '../../shared';
 import {
@@ -25,7 +26,8 @@ const ENTITY_STATES = [
     imports: [
         InnovationPortalSharedModule,
         RouterModule.forChild(ENTITY_STATES),
-        StarRatingModule.forRoot()
+        StarRatingModule.forRoot(),
+        MomentModule
     ],
     declarations: [
         IdeaMySuffixComponent,

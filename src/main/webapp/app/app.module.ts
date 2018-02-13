@@ -1,5 +1,5 @@
 import './vendor.ts';
-
+import { MomentModule } from 'angular2-moment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ngx-webstorage';
@@ -35,6 +35,7 @@ import {
         InnovationPortalAdminModule,
         InnovationPortalAccountModule,
         InnovationPortalEntityModule,
+        MomentModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

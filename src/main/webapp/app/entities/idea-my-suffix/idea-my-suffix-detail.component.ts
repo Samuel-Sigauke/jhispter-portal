@@ -11,6 +11,8 @@ import { OnRatingChangeEven } from 'angular-star-rating';
 import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
 
+
+
 @Component({
     selector: 'jhi-idea-my-suffix-detail',
     templateUrl: './idea-my-suffix-detail.component.html'
@@ -43,7 +45,6 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         });
         this.registerChangeInIdeas();
     }
-
     load(id) {
         this.ideaService.find(id).subscribe((idea) => {
             this.idea = idea;
@@ -76,12 +77,15 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
           null,
           this.newComment,
           new Date(),
+          //moment().startOf('hour').fromNow(),
           this.loginUser.login,
-          this.idea
+          this.idea,
+
         );
         this.commentMySuffixService.create(comment).subscribe((resp) => {
             console.log(resp);
             this.loadComments();
+            this.newComment = '';
         });
     }
     onRatingChange = ($event:OnRatingChangeEven) => {
@@ -99,6 +103,8 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
       this.ratingMySuffixService.create(rating).subscribe((resp) => {
         console.log(resp);
       });
+
+
       /*  let rating = new RatingMySuffix(
           null,
           this.new

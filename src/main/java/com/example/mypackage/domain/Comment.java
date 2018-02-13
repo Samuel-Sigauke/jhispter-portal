@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
+//import moment from 'moment';
 
 /**
  * not an ignored comment
@@ -30,6 +31,9 @@ public class Comment implements Serializable {
 
     @Column(name = "date_posted")
     private ZonedDateTime datePosted;
+
+    @Column(name = "moment")
+    private String moment;
 
     @Column(name = "commented_by")
     private String commentedBy;
@@ -59,7 +63,16 @@ public class Comment implements Serializable {
         this.commentSummary = commentSummary;
     }
 
-    public ZonedDateTime getDatePosted() {
+    /* public String getmoment(){
+      return moment;
+    }
+
+    public Comment moment(String moment){
+      this.moment = moment;
+      return this;
+    } */
+
+   public ZonedDateTime getDatePosted() {
         return datePosted;
     }
 
@@ -126,6 +139,7 @@ public class Comment implements Serializable {
             ", commentSummary='" + getCommentSummary() + "'" +
             ", datePosted='" + getDatePosted() + "'" +
             ", commentedBy='" + getCommentedBy() + "'" +
+            //", moment='" + getmoment() + "'" +
             "}";
     }
 }

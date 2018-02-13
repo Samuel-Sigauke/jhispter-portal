@@ -34,6 +34,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.idea.dateCreated = new Date();
 
         this.innovationChallengeService.query()
             .subscribe((res: ResponseWrapper) => { this.innovationchallenges = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
@@ -50,6 +51,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.ideaService.update(this.idea));
         } else {
+          console.log("date", this.idea)
             this.subscribeToSaveResponse(
                 this.ideaService.create(this.idea));
         }

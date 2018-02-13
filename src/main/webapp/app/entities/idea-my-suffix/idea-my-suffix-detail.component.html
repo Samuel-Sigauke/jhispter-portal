@@ -22,7 +22,7 @@
         </dd>
         <dt><span jhiTranslate="innovationPortalApp.idea.dateCreated">Date Created</span></dt>
         <dd>
-            <span>{{idea.dateCreated | date:'medium'}}</span>
+            <span>{{ idea.dateCreated | amTimeAgo }}</span>
         </dd>
         <dt><span jhiTranslate="innovationPortalApp.idea.postedBy">Posted By</span></dt>
         <dd>
@@ -115,6 +115,7 @@
   </p>
 
 
+
     <div class="suggester-container">
       <div class="suggester js-suggester js-navigation-container" data-url="/suggestions/pull_request/166201815?repository=tensorflow&amp;user_id=tensorflow" data-log-mention-url="/suggestions/log_mention?repository=tensorflow&amp;user_id=tensorflow" data-log-mention-authenticity-token="d7h3HaOvbncaXpGKMamKFu5/XUB1cLhI5wxQjKvgGsQXVYqNZl4c3IAiSM6FUsrc7YNXGlzTkELlXb4gs3xcLw==">
       </div>
@@ -146,6 +147,7 @@
     Comment
   </button>
           </div>
+          <div ></div>
         </div>
 
       <!--  <div class="container-fluid"> -->
@@ -160,7 +162,7 @@
                                             <b>{{comment.commentedBy}}</b>
                                             {{comment.commentSummary}}
                                             <br>
-                                            {{comment.datePosted | date:'medium'}}
+                                            {{comment.datePosted | amTimeAgo}}
 
                                           </p>
                                         </div>
