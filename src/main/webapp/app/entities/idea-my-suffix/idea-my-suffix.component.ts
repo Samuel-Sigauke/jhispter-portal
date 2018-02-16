@@ -6,25 +6,39 @@ import { IdeaMySuffixService } from './idea-my-suffix.service';
 import { Principal, ResponseWrapper } from '../../shared';
 import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
 import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
+
 @Component({
     selector: 'jhi-idea-my-suffix',
     templateUrl: './idea-my-suffix.component.html'
 })
 export class IdeaMySuffixComponent implements OnInit, OnDestroy {
 ideas: IdeaMySuffix[];
+comments:CommentMySuffix[];
+countComments: any;
     currentAccount: any;
     eventSubscriber: Subscription;
+
+
+
+
+
     constructor(
         private ideaService: IdeaMySuffixService,
+      //  private ideaMySuffixService: IdeaMySuffixService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        private principal: Principal
+        private principal: Principal,
+        private commentMySuffixService:CommentMySuffixService,
+
+
     ) {
     }
     loadAll() {
         this.ideaService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.ideas = res.json;
+               this.sortingIdeas();
+               this.loadComments();
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -51,6 +65,34 @@ ideas: IdeaMySuffix[];
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
+    sortingIdeas(){
+      this.ideaService.query().subscribe((resp)=>{
+        console.log('rter', resp.json);
+        this.ideas = resp.json.filter((idea) => {
+          return this.ideas;
+        });
+        this.ideas.sort(
+          (ide1, ide2) => { return ide1.dateCreated < ide2.dateCreated ? 1 : -1; }
+        );
+      });
+    }
+
+    loadComments() {
+        this.commentMySuffixService.query().subscribe((resp)=> {
+          console.log('AllComments',resp.json);
+          let ideaCommentsLength = { }
+          for (let comment of resp.json ){
+            if ( ideaCommentsLength[comment.idea.id] ){
+              ideaCommentsLength[comment.idea.id] += 1
+            }else {
+              ideaCommentsLength[comment.idea.id] = 1
+            }
+          }
+          console.log('New Map', ideaCommentsLength);
+          this.countComments = ideaCommentsLength;
+        });
+
+      }
 
     /*sendDate(){
         let newdate = new IdeaMySuffix(

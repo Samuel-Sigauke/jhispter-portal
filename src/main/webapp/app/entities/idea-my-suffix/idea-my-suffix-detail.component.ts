@@ -12,7 +12,6 @@ import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
 
 
-
 @Component({
     selector: 'jhi-idea-my-suffix-detail',
     templateUrl: './idea-my-suffix-detail.component.html'
@@ -50,6 +49,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
             this.idea = idea;
             this.loadComments();
 
+
         });
     }
     previousState() {
@@ -61,10 +61,12 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
       console.log('rter', resp.json);
       this.comments = resp.json.filter((comment) => {
         return comment.idea.id===this.idea.id;
+
       });
       this.comments.sort(
         (cmt1, cmt2) => { return cmt1.datePosted < cmt2.datePosted ? 1 : -1; }
       );
+
     });
   }
     ngOnDestroy() {
@@ -102,6 +104,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
       );
       this.ratingMySuffixService.create(rating).subscribe((resp) => {
         console.log(resp);
+      //  this.newRating = null;
       });
 
 

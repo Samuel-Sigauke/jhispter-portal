@@ -1,17 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-
 import { IdeaMySuffix } from './idea-my-suffix.model';
 import { IdeaMySuffixPopupService } from './idea-my-suffix-popup.service';
 import { IdeaMySuffixService } from './idea-my-suffix.service';
 import { InnovationChallengeMySuffix, InnovationChallengeMySuffixService } from '../innovation-challenge-my-suffix';
-import { ResponseWrapper } from '../../shared';
-
+// import { ResponseWrapper } from '../../shared';
+import {AccountService, ITEMS_PER_PAGE, Principal, ResponseWrapper} from '../../shared';
 @Component({
     selector: 'jhi-idea-my-suffix-dialog',
     templateUrl: './idea-my-suffix-dialog.component.html'
@@ -20,6 +18,7 @@ export class IdeaMySuffixDialogComponent implements OnInit {
 
     idea: IdeaMySuffix;
     isSaving: boolean;
+    loginUser: any;
 
     innovationchallenges: InnovationChallengeMySuffix[];
 
@@ -28,13 +27,23 @@ export class IdeaMySuffixDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private ideaService: IdeaMySuffixService,
         private innovationChallengeService: InnovationChallengeMySuffixService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private accountService: AccountService
     ) {
+
+        accountService.get().subscribe((resp)=> {
+             this.loginUser=resp;
+             console.log(this.loginUser=resp)
+             this.idea.postedBy = this.loginUser.login;
+      });
     }
 
     ngOnInit() {
         this.isSaving = false;
         this.idea.dateCreated = new Date();
+
+
+
 
         this.innovationChallengeService.query()
             .subscribe((res: ResponseWrapper) => { this.innovationchallenges = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
@@ -51,7 +60,9 @@ export class IdeaMySuffixDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.ideaService.update(this.idea));
         } else {
+
           console.log("date", this.idea)
+          console.log("postedby", this.idea)
             this.subscribeToSaveResponse(
                 this.ideaService.create(this.idea));
         }
@@ -66,7 +77,9 @@ export class IdeaMySuffixDialogComponent implements OnInit {
         this.eventManager.broadcast({ name: 'ideaListModification', content: 'OK'});
         this.isSaving = false;
         new Date();
+        this.loginUser.login;
         this.activeModal.dismiss(result);
+
     }
 
     private onSaveError() {

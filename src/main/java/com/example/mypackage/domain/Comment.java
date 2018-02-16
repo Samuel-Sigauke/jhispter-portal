@@ -32,8 +32,8 @@ public class Comment implements Serializable {
     @Column(name = "date_posted")
     private ZonedDateTime datePosted;
 
-    @Column(name = "moment")
-    private String moment;
+  /*  @Column(name = "moment")
+    private String moment;*/
 
     @Column(name = "commented_by")
     private String commentedBy;

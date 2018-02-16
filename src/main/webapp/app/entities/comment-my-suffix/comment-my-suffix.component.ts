@@ -11,7 +11,7 @@ import { Principal, ResponseWrapper } from '../../shared';
     templateUrl: './comment-my-suffix.component.html'
 })
 export class CommentMySuffixComponent implements OnInit, OnDestroy {
-comments: CommentMySuffix[];
+    comments: CommentMySuffix[];
     currentAccount: any;
     eventSubscriber: Subscription;
 
