@@ -21,6 +21,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     newRating = 1;
     idea: IdeaMySuffix;
     comments:CommentMySuffix[];
+    ratings:RatingMySuffix[];
     private subscription: Subscription;
     private eventSubscriber: Subscription;
     loginUser: any;
@@ -31,7 +32,8 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private accountService: AccountService,
         private commentMySuffixService:CommentMySuffixService,
-        private ratingMySuffixService:RatingMySuffixService
+        private ratingMySuffixService:RatingMySuffixService,
+
     ) {
         accountService.get().subscribe((resp)=> {
              this.loginUser=resp;
@@ -48,12 +50,23 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         this.ideaService.find(id).subscribe((idea) => {
             this.idea = idea;
             this.loadComments();
+            this.loadRatings();
 
 
         });
     }
     previousState() {
         window.history.back();
+    }
+
+    loadRatings(){
+    this.ratingMySuffixService.query().subscribe((resp)=>{
+      console.log('RATINGS', resp.json);
+      this.ratings = resp.json.filter((rating)=>{
+       return rating.idea.id=== this.idea.id;
+     });
+   });
+
     }
 
    loadComments(){
@@ -104,7 +117,8 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
       );
       this.ratingMySuffixService.create(rating).subscribe((resp) => {
         console.log(resp);
-      //  this.newRating = null;
+        this.loadRatings();
+      //this.newRating = null;
       });
 
 

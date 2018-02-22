@@ -40,13 +40,13 @@
         </dd>
     </dl>
     <label for="rating">Rate Idea
-      <star-rating-comp [starType]="'icon'"  [size]="'large'"    [rating]="myrating" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
+      <star-rating-comp [starType]="'icon'"  [size]="'medium'"    [rating]="myrating" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
     </label>
 
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-521cbf980c80.css" integrity="sha512-Uhy/mAyAx1HfsenmjQ85ASpOk5bjt2Ay03pNeixXIvkHlEm5S+N4u0HWfDGhvsGYx4bGyviXWGGPZeIffqYcNA==" media="all" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-f75b395c95ee.css" integrity="sha512-91s5XJXuYfLeHJoeobMe4FgEnU0IIJNpD/SfZ5MQOVZ7CnKZ4/KLOusHqNFqOJVJVBWgJ9G+6w+jxVVpJ1aKxw==" media="all" rel="stylesheet" />
 
-
+<div class="comment-body markdown-body js-preview-body" style="min-height: 131px;">
   <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled" data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="DDCKkij/84oJWyZ/0w5hnSTJabvQFh6nUprxy2TG529ntLLI7ISes6ByckfziezHUkfLg21DgSRUisyU1PLzpg==" data-upload-repository-id="45717250">
     <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
       <textarea [(ngModel)]="newComment" name="comment[body]" id="new_comment_field" placeholder="Leave a comment" aria-label="Comment body" class="form-control input-contrast comment-form-textarea js-comment-field js-improved-comment-field js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-quote-selection-target js-session-resumable "></textarea>
@@ -71,9 +71,8 @@
       <span class=""></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
     </button>
     <br>
-
     <br>
-    <b>  {{comments?.length}} Comments </b>
+    <b>  {{comments?.length}} Comments  | {{ratings?.length}} Ratings</b>
     <p></p>
     <div>
       <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
@@ -90,5 +89,5 @@
 
   </div>
 
-  <div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"></div>
+</div>
 </div>

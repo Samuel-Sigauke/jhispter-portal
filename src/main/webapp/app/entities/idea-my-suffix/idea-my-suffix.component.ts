@@ -6,6 +6,8 @@ import { IdeaMySuffixService } from './idea-my-suffix.service';
 import { Principal, ResponseWrapper } from '../../shared';
 import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
 import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
+import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
+import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
 
 @Component({
     selector: 'jhi-idea-my-suffix',
@@ -15,6 +17,7 @@ export class IdeaMySuffixComponent implements OnInit, OnDestroy {
 ideas: IdeaMySuffix[];
 comments:CommentMySuffix[];
 countComments: any;
+countRating: any;
     currentAccount: any;
     eventSubscriber: Subscription;
 
@@ -29,7 +32,7 @@ countComments: any;
         private eventManager: JhiEventManager,
         private principal: Principal,
         private commentMySuffixService:CommentMySuffixService,
-
+        private ratingMySuffixService:RatingMySuffixService
 
     ) {
     }
@@ -39,6 +42,7 @@ countComments: any;
                 this.ideas = res.json;
                this.sortingIdeas();
                this.loadComments();
+               this.loadRatings();
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -93,6 +97,23 @@ countComments: any;
         });
 
       }
+
+      loadRatings() {
+          this.ratingMySuffixService.query().subscribe((resp)=> {
+            console.log('AllRatings',resp.json);
+            let ideaRatingsLength = { }
+            for (let rating of resp.json ){
+              if ( ideaRatingsLength[rating.idea.id] ){
+                ideaRatingsLength[rating.idea.id] += 1
+              }else {
+                ideaRatingsLength[rating.idea.id] = 1
+              }
+            }
+            console.log('Rating Map', ideaRatingsLength);
+            this.countRating = ideaRatingsLength;
+          });
+
+        }
 
     /*sendDate(){
         let newdate = new IdeaMySuffix(
