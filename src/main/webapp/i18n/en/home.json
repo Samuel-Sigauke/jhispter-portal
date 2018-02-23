@@ -1,7 +1,7 @@
 {
     "home": {
-        
 
+"title":"Stewardbank Innovation Portal",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

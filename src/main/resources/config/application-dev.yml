@@ -30,6 +30,17 @@ eureka:
 spring:
     profiles:
         active: dev
+        mail:
+           host: mail.stewardbank.co.zw
+           port: 25
+           username: anesu.siwella@stewardbank.co.zw  #Replace this field with your Outlook username.
+           password: 001993$feb               #Replace this field with your Outlook password.
+           protocol: smtp
+           tls: true
+           properties.mail.smtp:
+               auth: true
+               starttls.enable: true
+               ssl.trust: smtp-mail.outlook.com
         include: swagger
     devtools:
         restart:

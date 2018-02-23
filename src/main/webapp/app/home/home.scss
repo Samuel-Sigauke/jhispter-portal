@@ -7,7 +7,7 @@ Main page styles
     display: inline-block;
     width: 347px;
     height: 497px;
-    background: url("../../content/images/image6.jpg") no-repeat center top;
+  //  background: url("../../content/images/image6.jpg") no-repeat center top;
     background-size: contain;
 
 }
@@ -27,5 +27,8 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 .row{
-  background: url("../../content/images/banner.jpg") no-repeat center top;
+  //background:linear-gradient(rgba(17, 17, 17, 0.25), rgba(17, 17, 17, 0.25)), transparent url("../../content/images/banner.gif");
+background: url("../../content/images/harare.gif") no-repeat center top  ;
+  //background-color: rgb(17, 17, 17);
+background-size: cover;
 }

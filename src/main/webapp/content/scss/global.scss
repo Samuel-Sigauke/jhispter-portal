@@ -47,7 +47,12 @@ Generic styles
 .jh-card {
     padding: 1.5%;
     margin-top: 20px;
+    color: white;
     border: none;
+    background: url("../../content/images/harare.gif") no-repeat center top  ;
+      //background-color: rgb(17, 17, 17);
+    background-size: cover;
+
 }
 
 .error {
