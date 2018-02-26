@@ -1,96 +1,120 @@
-
 <style>
-  .btn-primary {
-    color: #fff;
-    background-color: #650b7a;
-    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
-  }
-  .js-navigation-container{
-    color: #000;
-  }
-  .write-content {
-    width: 500px;
-    height:5px;
-  }
+
+.write-content {
+  width: 450px;
+  height:500px;
+  text-align: center;
+
+}
+h3,h3{
+text-align:  center;
+}
+
+.table-responsive{
+    border: 0px solid #CCC;
+    border-collapse: collapse;
+}
+tr
+{
+  border-top: 0px;
+}
+#new_comment_field{
+opacity: 0.4;
+
+}
+.btn-primary {
+  color: #fff;
+  background-color: #17a2b8;
+  background-image: linear-gradient(-180deg, #17a2b8 0%, #17a2b8 90%);
+}
+
+.newComment{
+  text-align: center;
+}
 </style>
 
-<div *ngIf="idea" >
-  <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
+<div>
+  <h3>
+      <span><b>Idea Detail<b></span></h3>
+<div class= "table-responsive" *ngIf="idea" >
+  <table class="table table-striped" >
+      <thead>
+      <tr >
 
-        <dt><span jhiTranslate="innovationPortalApp.idea.ideaTitle">Idea Title</span></dt>
-        <dd>
-            <span>{{idea.ideaTitle}}</span>
-        </dd>
-        <dt><span jhiTranslate="innovationPortalApp.idea.ideaSummary">Idea Summary</span></dt>
-        <dd>
-            <span>{{idea.ideaSummary}}</span>
-        </dd>
-        <dt><span jhiTranslate="innovationPortalApp.idea.dateCreated">Date Created</span></dt>
-        <dd>
-            <span>{{ idea.dateCreated | amTimeAgo }}</span>
-        </dd>
-        <dt><span jhiTranslate="innovationPortalApp.idea.postedBy">Posted By</span></dt>
-        <dd>
-            <span>{{idea.postedBy}}</span>
-        </dd>
-        <dt><span jhiTranslate="innovationPortalApp.idea.inovationChallenge">Inovation Challenge</span></dt>
-        <dd>
-            <div *ngIf="idea.inovationChallenge">
-                <a [routerLink]="['/innovation-challenge-my-suffix', idea.inovationChallenge?.id]">{{idea.inovationChallenge?.id}}</a>
-            </div>
-        </dd>
-    </dl>
-    <label for="rating">Rate Idea
-      <star-rating-comp [starType]="'icon'"  [size]="'medium'"    [rating]="myrating" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
-    </label>
+      <th><span jhiTranslate="innovationPortalApp.idea.ideaTitle">Idea Title </span></th>
+      <th><span jhiTranslate="innovationPortalApp.idea.ideaSummary">Idea Summary</span></th>
+      <th><span jhiTranslate="innovationPortalApp.idea.dateCreated">Date Created</span></th>
+      <th><span jhiTranslate="innovationPortalApp.idea.postedBy">Posted By</span></th>
+      <th><span jhiTranslate="innovationPortalApp.idea.inovationChallenge">Innovation Challenge</span></th>
+      <th></th>
+      </tr>
+  </thead>
+      <tbody>
+        <tr>
 
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-521cbf980c80.css" integrity="sha512-Uhy/mAyAx1HfsenmjQ85ASpOk5bjt2Ay03pNeixXIvkHlEm5S+N4u0HWfDGhvsGYx4bGyviXWGGPZeIffqYcNA==" media="all" rel="stylesheet" />
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-f75b395c95ee.css" integrity="sha512-91s5XJXuYfLeHJoeobMe4FgEnU0IIJNpD/SfZ5MQOVZ7CnKZ4/KLOusHqNFqOJVJVBWgJ9G+6w+jxVVpJ1aKxw==" media="all" rel="stylesheet" />
+            <!--<td><a [routerLink]="['../idea-my-suffix', comment.id ]">{{comment.id}}</a></td>-->
+            <td>{{idea.ideaTitle}}</td>
+            <td>{{idea.ideaSummary}}</td>
+            <td>{{ idea.dateCreated | amTimeAgo }}</td>
+            <td>{{idea.postedBy}}</td>
 
+            <td>
+      <div *ngIf="idea.inovationChallenge">
+        <span>{{idea.inovationChallenge?.challengeName}}</span>
+      </div>
+          </td>
+
+          </tr>
+
+        </tbody>
+
+      </table><br>
+      <h3> <b>Rate Idea  </b></h3>
+        <star-rating-comp [starType]="'icon'"  [size]="'large'"   [rating]="myrating" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
+<!--[rating]="myrating?.ratingPoints"-->
+<br>
 <div class="comment-body markdown-body js-preview-body" style="min-height: 131px;">
-  <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled" data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="DDCKkij/84oJWyZ/0w5hnSTJabvQFh6nUprxy2TG529ntLLI7ISes6ByckfziezHUkfLg21DgSRUisyU1PLzpg==" data-upload-repository-id="45717250">
-    <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
-      <textarea [(ngModel)]="newComment" name="comment[body]" id="new_comment_field" placeholder="Leave a comment" aria-label="Comment body" class="form-control input-contrast comment-form-textarea js-comment-field js-improved-comment-field js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-quote-selection-target js-session-resumable "></textarea>
-      <p class="drag-and-drop position-relative">
-        <input accept=".gif,.jpeg,.jpg,.png,.docx,.gz,.log,.pdf,.pptx,.txt,.xlsx,.zip" type="file" multiple="multiple" class="manual-file-chooser top-0 right-0 bottom-0 left-0 width-full ml-0 js-manual-file-chooser" aria-label="Attach files to your comment">
-          <span class="default">
-            Attach files by dragging &amp; dropping,
-            <span class="btn-link manual-file-chooser-text">selecting them</span>, or pasting
-            from the clipboard.
-          </span>
-          <span class="loading">
-            <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16"> Uploading your files…
-          </span>
-    </p>
-      <br>
-    <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
-      Comment
-    </button>
-    <button type="submit"
-            (click)="previousState()"
-            class="btn btn-info">
-      <span class=""></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
-    </button>
-    <br>
-    <br>
-    <b>  {{comments?.length}} Comments  | {{ratings?.length}} Ratings</b>
-    <p></p>
-    <div>
-      <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
-        <li *ngFor="let comment of comments ;trackBy: trackId" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
-          <p>
-            <b>{{comment.commentedBy}}</b>
-              {{comment.commentSummary}}
+      <div  style="margin:0 auto;" class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled" data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="DDCKkij/84oJWyZ/0w5hnSTJabvQFh6nUprxy2TG529ntLLI7ISes6ByckfziezHUkfLg21DgSRUisyU1PLzpg==" data-upload-repository-id="45717250">
+        <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
+          <textarea [(ngModel)]="newComment" name="comment[body]" id="new_comment_field" placeholder="Leave a comment.." aria-label="Comment body" class="form-control input-contrast comment-form-textarea js-comment-field js-improved-comment-field js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-quote-selection-target js-session-resumable "></textarea>
+        <!--  <p class="drag-and-drop position-relative">
+            <input accept=".gif,.jpeg,.jpg,.png,.docx,.gz,.log,.pdf,.pptx,.txt,.xlsx,.zip" type="file" multiple="multiple" class="manual-file-chooser top-0 right-0 bottom-0 left-0 width-full ml-0 js-manual-file-chooser" aria-label="Attach files to your comment">
+              <span class="default">
+                Attach files by dragging &amp; dropping,
+                <span class="btn-link manual-file-chooser-text">selecting them</span>, or pasting
+                from the clipboard.
+              </span>
+              <span class="loading">
+                <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16"> Uploading your files…
+              </span>
+            </p>-->
               <br>
-              {{comment.datePosted | amTimeAgo}}
-          </p>
-        </li>
-      </ul>
-    </div>
 
-  </div>
-
+            <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
+            Comment
+            </button>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+              <span class=""></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
+            </button>
+            <br>
+            <br>
+            <h5>  {{comments?.length}} Comments  | {{ratings?.length}} Ratings</h5>
+            <p></p>
+            <div>
+              <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
+                <li *ngFor="let comment of comments ;trackBy: trackId" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
+                  <p>
+                    <b>{{comment.commentedBy}}</b>
+                      {{comment.commentSummary}}
+                      <br>
+                      {{comment.datePosted | amTimeAgo}}
+                  </p>
+                </li>
+              </ul>
+            </div>
+</div>
+</div>
 </div>
 </div>

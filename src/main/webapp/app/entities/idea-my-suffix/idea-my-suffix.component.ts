@@ -16,6 +16,8 @@ import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.servic
 export class IdeaMySuffixComponent implements OnInit, OnDestroy {
 ideas: IdeaMySuffix[];
 comments:CommentMySuffix[];
+allIdeas: IdeaMySuffix[];
+searchString: string;
 countComments: any;
 countRating: any;
     currentAccount: any;
@@ -39,7 +41,8 @@ countRating: any;
     loadAll() {
         this.ideaService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.ideas = res.json;
+              this.ideas = res.json;
+              this.allIdeas = this.ideas;
                this.sortingIdeas();
                this.loadComments();
                this.loadRatings();
@@ -115,6 +118,20 @@ countRating: any;
 
         }
 
+
+        search(searchString) {
+                console.log("Chiyedza", this.searchString);
+                let _searchString = this.searchString;
+                this.ideas = this.allIdeas.filter((idea) => {
+                  console.log("AAAA", idea, "BBB", _searchString);
+                  if(!idea.ideaTitle){
+                    return false;
+                  }
+                    return idea.ideaTitle.toUpperCase().search(_searchString.toUpperCase()) >= 0;
+            });
+
+            console.log(this.ideas);
+        }
     /*sendDate(){
         let newdate = new IdeaMySuffix(
           null,

@@ -49,7 +49,7 @@
             <label class="form-control-label" jhiTranslate="innovationPortalApp.idea.inovationChallenge" for="field_inovationChallenge">Inovation Challenge</label>
             <select class="form-control" id="field_inovationChallenge" name="inovationChallenge" [(ngModel)]="idea.inovationChallenge" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="innovationChallengeOption.id === idea.inovationChallenge?.id ? idea.inovationChallenge : innovationChallengeOption" *ngFor="let innovationChallengeOption of innovationchallenges; trackBy: trackInnovationChallengeById">{{innovationChallengeOption.id}}</option>
+                <option [ngValue]="innovationChallengeOption.id === idea.inovationChallenge?.id ? idea.inovationChallenge : innovationChallengeOption" *ngFor="let innovationChallengeOption of innovationchallenges; trackBy: trackInnovationChallengeById">{{innovationChallengeOption.challengeName}}</option>
             </select>
         </div>
     </div>

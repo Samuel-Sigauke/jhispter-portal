@@ -25,6 +25,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private eventSubscriber: Subscription;
     loginUser: any;
+    myrating: any;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -65,6 +66,14 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
       this.ratings = resp.json.filter((rating)=>{
        return rating.idea.id=== this.idea.id;
      });
+     console.log("RATE ONCE", this.ratings);
+     /*for (let rating of this.ratings) {
+       if (rating.ratedBy === this.loginUser.login){
+         this.myrating = rating;
+          console.log("rated By Me", this.myrating);
+         break;
+       }
+     }*/
    });
 
     }
@@ -105,16 +114,24 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     }
     onRatingChange = ($event:OnRatingChangeEven) => {
         console.log('onRatingUpdated $event: ', $event);
+        console.log('Event.Rating: ', $event.rating);
         console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.ONE)
+        if(this.myrating ){ // the logged in user has rated this idea so we are updating instead of creating new
+          this.ratingMySuffixService.update(this.myrating).subscribe((resp) => {
+            console.log(resp);
+            this.loadRatings();
+          //this.newRating = null;
+          });
+        }
         this.newRating = $event.rating;
-
+        console.log('New Rates',this.newRating)
         let rating = new RatingMySuffix(
-        null,
-        this.newRating-1,
-        this.loginUser.login,
-        new Date(),
-        this.idea
-      );
+          null,
+          this.newRating-1,
+          this.loginUser.login,
+          new Date(),
+          this.idea
+        );
       this.ratingMySuffixService.create(rating).subscribe((resp) => {
         console.log(resp);
         this.loadRatings();

@@ -28,22 +28,23 @@
                  <div _ngcontent-c3="" class="issues-listing" data-pjax="">
                    <div _ngcontent-c3="" class="subnav" data-pjax="">
                      <div _ngcontent-c3="" class="float-left subnav-spacer-right" role="search">
-                       <form _ngcontent-c3="" accept-charset="UTF-8" action="/jhipster/generator-jhipster/issues" class="subnav-search float-left ng-untouched ng-pristine ng-valid" data-pjax="true" method="get" novalidate="">
+                       <form _ngcontent-c3="" accept-charset="UTF-8" action="/jhipster/generator-jhipster/issues" class="subnav-search float-left ng-untouched ng-pristine ng-valid" data-pjax="true" method="get" novalidate=""  #form="ngForm" (ngSubmit)="search(form.value)">
                          <div _ngcontent-c3="" style="margin:0;padding:0;display:inline">
                            <input _ngcontent-c3="" name="utf8" type="hidden" value="✓">
                          </div>
-                         <input _ngcontent-c3="" aria-label="Search all issues" class="form-control form-control subnav-search-input input-contrast" data-hotkey="/" id="js-issues-search" name="q" placeholder="Search all ideas" type="text" value="">
+                         <input _ngcontent-c3="" aria-label="Search all issues" class="form-control form-control subnav-search-input input-contrast" data-hotkey="/" id="js-issues-search" name="q" placeholder="Search all ideas"  type="text" value="" [(ngModel)]="searchString">
                          <svg _ngcontent-c3="" aria-hidden="true" class="octicon octicon-search subnav-search-icon" height="16" version="1.1" viewBox="0 0 16 16" width="16">
                           <path _ngcontent-c3="" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z" fill-rule="evenodd">
                           </path>
                          </svg>
                       </form>
+
                      </div>
                   </div>
                   <div _ngcontent-c3="" class="table-list-header" id="js-issues-toolbar">
                     <div _ngcontent-c3="" class="table-list-filters">
                       <div _ngcontent-c3="" class="table-list-header-toggle states float-left pl-3">
-                        <a _ngcontent-c3="" class="btn-link selected">
+                        <a _ngcontent-c3="" class="btn-link selected" >
                           {{ideas?.length}} Ideas
                         </a>
                         <a _ngcontent-c3="" class="btn-link">
