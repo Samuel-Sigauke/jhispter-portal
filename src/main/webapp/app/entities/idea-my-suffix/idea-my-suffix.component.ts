@@ -8,6 +8,17 @@ import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
 import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
 import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'limitId' })
+export class DataPipe implements PipeTransform {
+    transform(value: any[], matEntries: number) {
+        if (value && value.length > matEntries) {
+            return value.slice(0,matEntries);
+        }
+        return value;
+    }
+}
 
 @Component({
     selector: 'jhi-idea-my-suffix',
@@ -22,11 +33,7 @@ countComments: any;
 countRating: any;
     currentAccount: any;
     eventSubscriber: Subscription;
-
-
-
-
-
+  matEntries=12;
     constructor(
         private ideaService: IdeaMySuffixService,
       //  private ideaMySuffixService: IdeaMySuffixService,
@@ -50,6 +57,13 @@ countRating: any;
             (res: ResponseWrapper) => this.onError(res.json)
         );
     }
+    showEntity() {
+            // this.maxEntries = this.idea.comments?.length;
+            this.matEntries=this.ideas.length;
+            console.log('chiy');
+            console.log('this.matEntries', this.ideas);
+        }
+
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {

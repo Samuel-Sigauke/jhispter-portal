@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StarRatingModule } from 'angular-star-rating';
 import { MomentModule } from 'angular2-moment';
+import { Pipe, PipeTransform } from '@angular/core';
 
 import { InnovationPortalSharedModule } from '../../shared';
 import {
@@ -15,6 +16,10 @@ import {
     IdeaMySuffixDeleteDialogComponent,
     ideaRoute,
     ideaPopupRoute,
+    SummaryPipe,
+    IdeaPipe,
+    DataPipe,
+
 } from './';
 
 const ENTITY_STATES = [
@@ -36,6 +41,10 @@ const ENTITY_STATES = [
         IdeaMySuffixDeleteDialogComponent,
         IdeaMySuffixPopupComponent,
         IdeaMySuffixDeletePopupComponent,
+        SummaryPipe,
+        IdeaPipe,
+        DataPipe,
+
     ],
     entryComponents: [
         IdeaMySuffixComponent,

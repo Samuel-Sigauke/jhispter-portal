@@ -10,8 +10,26 @@ import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.ser
 import { OnRatingChangeEven } from 'angular-star-rating';
 import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
+@Pipe({ name: 'summary' })
+export class SummaryPipe implements PipeTransform {
+    transform(value: string, maxWords: number) {
+        if (value) {
+            return value.substring(0, maxWords);
+        }
+    }
+}
+@Pipe({ name: 'limitTo' })
+export class IdeaPipe implements PipeTransform {
+    transform(value: any[], maxEntries: number) {
+        if (value && value.length > maxEntries) {
+            return value.slice(0,maxEntries);
+        }
+        return value;
+    }
+}
 @Component({
     selector: 'jhi-idea-my-suffix-detail',
     templateUrl: './idea-my-suffix-detail.component.html'
@@ -26,6 +44,9 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     private eventSubscriber: Subscription;
     loginUser: any;
     myrating :any;
+    maxLength=6;
+    ideaSummary: any;
+    maxEntries=3;
 
     ratings_map= {
       'ONE':1,
@@ -73,8 +94,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
             public dateRated?: any,
             public idea?: BaseEntity,
             */
-            this.myrating = new  RatingMySuffix( null, 0, null, null,this.idea
-            )
+            this.myrating = new  RatingMySuffix( null, 0, null, null,this.idea );
             this.loadComments();
             this.loadRatings();
 
@@ -180,4 +200,13 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
             (response) => this.load(this.idea.id)
         );
     }
+        showAll() {
+              this.maxLength = this.idea.ideaSummary.length;
+    }
+    showEntries() {
+            // this.maxEntries = this.idea.comments?.length;
+            this.maxEntries=this.comments.length;
+            console.log('chiy');
+            console.log('this.maxEntries', this.comments);
+        }
 }
