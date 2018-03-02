@@ -1,24 +1,72 @@
-<div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
-    </div>
-    <div class="col-md-9" >
+<!--
+<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"></link>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+-->
 
 
+<style>
 
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span *ngIf="account" jhiTranslate="home.logged.message"
-                    translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+
+.card{
+  opacity: 0.8;
+}
+
+.alert{
+  opacity: 0.60;
+  color: #000;
+
+}
+.container{
+      margin: auto;
+      width: 50%;
+
+
+}
+</style>
+
+<div class="row" >
+
+                    <span class="hipster "></span>
+
+                      <div class="container" style="margin:0 auto;" >
+
+                      <!--<div class="card white-grey darken-1" >
+                        <div class="card-content black-text">
+                          <span class="card-title">
+                            <h4>About</h4>
+                           </span>
+                          <h5>This is where you could see your idea come to life.</h5>
+                          <p>To do this we have to constantly explore new ways of working with others and identify the best ideas and technologies,
+                            wherever they may be. We want to collaborate with innovative people to help develop solutions to our
+                            current challenges and create new opportunities for the future</p>
+                        </div> -->
+                        <div [ngSwitch]="isAuthenticated()"  >
+                            <div class="alert alert-success" *ngSwitchCase="true">
+
+
+                                <span *ngIf="account" jhiTranslate="home.logged.message"
+                                    translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+                            </div>
+
+                        <div class="alert alert-warning" *ngSwitchCase="false">
+
+                          <span><h5>This is where you could see your idea come to life.</h5>
+                          <p><b>To do this we have to constantly explore new ways of working with others and identify the best ideas and technologies,
+                            wherever they may be. We want to collaborate with innovative people to help develop solutions to our
+                            current challenges and create new opportunities for the future<b></p></span>
+                               <br>
+                              Click to
+                              <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>
+                              here.
+                              <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
+                              <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+                          </div>
+                        </div>
+                    <!--  </div>-->
+                    </div >
+                  </div>
+                </div>
+              <div class="col-md-9" >
             </div>
-
-        <div class="alert alert-warning" *ngSwitchCase="false">
-              Click to
-              <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>
-              here.
-              <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
-              <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
           </div>
-        </div>
-</div>
-</div>

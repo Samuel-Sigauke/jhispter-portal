@@ -25,7 +25,24 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private eventSubscriber: Subscription;
     loginUser: any;
-    myrating: any;
+    myrating :any;
+
+    ratings_map= {
+      'ONE':1,
+      'TWO':2,
+      'THREE':3,
+      'FOUR':4,
+      'FIVE':5
+    }
+
+    ratings_map_reverse= {
+      0: RatingPoints.ONE,
+      1: RatingPoints.ONE,
+      2: RatingPoints.TWO,
+      3: RatingPoints.THREE,
+      4: RatingPoints.FOUR,
+      5: RatingPoints.FIVE
+    }
 
     constructor(
         private eventManager: JhiEventManager,
@@ -50,6 +67,14 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     load(id) {
         this.ideaService.find(id).subscribe((idea) => {
             this.idea = idea;
+            /*public id?: number,
+            public ratingPoints?: RatingPoints,
+            public ratedBy?: string,
+            public dateRated?: any,
+            public idea?: BaseEntity,
+            */
+            this.myrating = new  RatingMySuffix( null, 0, null, null,this.idea
+            )
             this.loadComments();
             this.loadRatings();
 
@@ -61,36 +86,39 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     }
 
     loadRatings(){
-    this.ratingMySuffixService.query().subscribe((resp)=>{
-      console.log('RATINGS', resp.json);
-      this.ratings = resp.json.filter((rating)=>{
-       return rating.idea.id=== this.idea.id;
-     });
-     console.log("RATE ONCE", this.ratings);
-     /*for (let rating of this.ratings) {
-       if (rating.ratedBy === this.loginUser.login){
-         this.myrating = rating;
-          console.log("rated By Me", this.myrating);
-         break;
-       }
-     }*/
-   });
+        this.ratingMySuffixService.query().subscribe((resp)=>{
+              console.log('RATINGS', resp.json);
+              this.ratings = resp.json.filter((rating)=>{
+                  return rating.idea.id=== this.idea.id;
+              });
 
+              console.log("RATE ONCE", this.ratings);
+              //Code to rate once starts here
+             for (let rating of this.ratings) {
+
+               if (rating.ratedBy === this.loginUser.login){
+                  this.myrating = rating;
+                  console.log("rated By Me", this.myrating);
+                  break;
+               }
+
+
+             }   //Code to rate ends starts here
+            console.log("Checking" , this.myrating);
+       });
     }
 
    loadComments(){
-    this.commentMySuffixService.query().subscribe((resp)=>{
-      console.log('rter', resp.json);
-      this.comments = resp.json.filter((comment) => {
-        return comment.idea.id===this.idea.id;
-
-      });
-      this.comments.sort(
-        (cmt1, cmt2) => { return cmt1.datePosted < cmt2.datePosted ? 1 : -1; }
-      );
-
-    });
-  }
+        this.commentMySuffixService.query().subscribe((resp)=>{
+              console.log('rter', resp.json);
+              this.comments = resp.json.filter((comment) => {
+                  return comment.idea.id===this.idea.id;
+              });
+              this.comments.sort(
+                  (cmt1, cmt2) => { return cmt1.datePosted < cmt2.datePosted ? 1 : -1; }
+              );
+        });
+   }
     ngOnDestroy() {
         this.subscription.unsubscribe();
         this.eventManager.destroy(this.eventSubscriber);
@@ -116,12 +144,14 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         console.log('onRatingUpdated $event: ', $event);
         console.log('Event.Rating: ', $event.rating);
         console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.ONE)
-        if(this.myrating ){ // the logged in user has rated this idea so we are updating instead of creating new
+        if(this.myrating.ratedBy === this.loginUser.login ){ // the logged in user has rated this idea so we are updating instead of creating new
+          // this.myrating.ratingPoints = $event.rating;
           this.ratingMySuffixService.update(this.myrating).subscribe((resp) => {
             console.log(resp);
-            this.loadRatings();
+            //this.loadRatings();
           //this.newRating = null;
           });
+          return;
         }
         this.newRating = $event.rating;
         console.log('New Rates',this.newRating)
