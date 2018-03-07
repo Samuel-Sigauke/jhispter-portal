@@ -131,8 +131,6 @@ countRating: any;
           });
 
         }
-
-
         search(searchString) {
                 console.log("Chiyedza", this.searchString);
                 let _searchString = this.searchString;

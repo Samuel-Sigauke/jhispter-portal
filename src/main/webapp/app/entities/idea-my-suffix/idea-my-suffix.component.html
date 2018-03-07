@@ -7,6 +7,7 @@
     background-color: #650b7a;
     background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
   }
+
 </style>
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-98cac35b43fab8341490a2623fdaa7b696bbaea87bccf8f485fd5cdb4996cd9b52bdb24709fb3bab0a0dcff4a29187d65028ee693d609ce5c0c3283c77a247a9.css" integrity="sha512-mMrDW0P6uDQUkKJiP9qntpa7rqh7zPj0hf1c20mWzZtSvbJHCfs7qwoNz/SikYfWUCjuaT1gnOXAwyg8d6JHqQ==" media="all" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-95eea2bd803aed490d7f80bcb2ee29159d69b493e4736d7929a32d93940aa8f1e9434a8320f8f574212bb7e0d8635ae95df44a034d231acb434af04089ff8cd4.css" integrity="sha512-le6ivYA67UkNf4C8su4pFZ1ptJPkc215KaMtk5QKqPHpQ0qDIPj1dCErt+DYY1rpXfRKA00jGstDSvBAif+M1A==" media="all" rel="stylesheet" />
@@ -76,7 +77,9 @@
                 </div>
               </div>
             </div>
-            <div _ngcontent-c3="" class="border-right border-bottom border-left">
+
+            <div _ngcontent-c3="">
+                <!--<div _ngcontent-c3="" class="border-right border-bottom border-left">-->
               <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
                 <li *ngFor="let idea of (ideas | limitId:matEntries)" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
                   <div _ngcontent-c3="" class="d-table table-fixed width-full Box-row--drag-hide position-relative">
@@ -89,6 +92,7 @@
                       </span>
                     </div>
                     <div _ngcontent-c3="" class="float-left col-9 p-2 lh-condensed">
+                      
                       <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]"> {{idea.ideaTitle}}:  </a>
                       <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">By {{idea.postedBy}}  </a>
                       <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">{{idea.dateCreated | amTimeAgo}}  </a>
@@ -129,7 +133,7 @@
             </ul>
 
           </div>
-  <div*ngIf="ideas?.length > matEntries" (click)="showEntity()" class="fa fa-right"><a><i> Read More Ideas</i><a> </div>
+  <div *ngIf="ideas?.length > matEntries" (click)="showEntity()" class="fa fa-right"><a><i> Read More Ideas</i><a> </div>
         </div>
       </div>
     </div>

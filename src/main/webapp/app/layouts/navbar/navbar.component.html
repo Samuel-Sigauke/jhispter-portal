@@ -35,12 +35,12 @@
                             <span jhiTranslate="global.menu.entities.ideaMySuffix">Idea My Suffix</span>
                         </a>
                     </li>
-                 <li>
-                        <a class="dropdown-item" routerLink="comment-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()" *jhiHasAnyAuthority="'ROLE_ADMIN'">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.commentMySuffix" >Comment My Suffix</span>
-                        </a>
-                    </li>
+                          <!-- <li>
+                              <a class="dropdown-item" routerLink="comment-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                                  <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                  <span jhiTranslate="global.menu.entities.commentMySuffix" >Comment My Suffix</span>
+                              </a>
+                          </li> -->
                     <li>
                         <a class="dropdown-item" routerLink="innovation-challenge-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()"  *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
@@ -49,7 +49,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" routerLink="category-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="category-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()" *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.categoryMySuffix">Category My Suffix</span>
                         </a>

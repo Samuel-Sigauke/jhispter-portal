@@ -1,9 +1,7 @@
 <!--
 -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"></link>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<head>
+
+
   <style>
     .write-content {
       width: 450px;
@@ -11,11 +9,13 @@
       text-align: center;
       text-decoration-color: #000;
     }
-    .card{
+    .alert{
       width: 450px;
       text-align: left;
       opacity: 0.8;
       padding: left;
+      background-color:#fff;
+      color: #000;
     }
     h5,h5{
       text-align:  center;
@@ -43,13 +43,12 @@
       color:#ffd700;
     }
   </style>
-</head>
 
   <h5><span><b>Idea Detail<b></span></h5>
 
-
-          <div class="card white-grey darken-1" style="margin:0 auto;">
-            <div class="card-content black-text" *ngIf="idea">
+    <div class="alert alert-warning" *ngIf="idea" style="margin:0 auto;">
+        <!--  <div class="card white-grey darken-1" style="margin:0 auto;">
+          <div class="card-content black-text" *ngIf="idea"> -->
                 <table cellspacing=20>
                   <tr>
                     <td><b>Challenge Name</b>: {{idea.inovationChallenge?.challengeName}}</td>
@@ -66,8 +65,12 @@
                     <div *ngIf="idea.ideaSummary?.length > maxLength" (click)="showAll()" class="fa fa-right"> <a><i> &nbsp;&nbsp;&nbsp;read more</i> </a></div>
                   </tr>
                 </table>
+
+            <!--  </div>-->
             </div>
-          </div>
+        <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"></link>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
       <h5> <b>Rate Idea  </b></h5>
       <span >
         <star-rating-comp
@@ -79,11 +82,12 @@
      </span>
 <br>
 
+<!--<div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"> -->
       <div  style="margin:0 auto;"
-      class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled"
-      data-upload-policy-url="/upload/policies/assets"
+      class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled">
+      <!-- data-upload-policy-url="/upload/policies/assets"
       data-upload-policy-authenticity-token="DDCKkij/84oJWyZ/0w5hnSTJabvQFh6nUprxy2TG529ntLLI7ISes6ByckfziezHUkfLg21DgSRUisyU1PLzpg=="
-      data-upload-repository-id="45717250">
+      data-upload-repository-id="45717250" -->
 
         <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
         <textarea [(ngModel)]="newComment"
@@ -116,7 +120,8 @@
                   </p>
                 </li>
                   </ul>
-                   </div>
+                  <p><div *ngIf="comments?.length > maxEntries" (click)="showEntries()" class="fa fa-right"><a><i> Read More Comments
+                  </i><a></div><p>
 
-                <p><div*ngIf="comments?.length > maxEntries" (click)="showEntries()" class="fa fa-right"><a><i> Read More Comments
-                </i><a></div><p>
+               </div>
+</div>
