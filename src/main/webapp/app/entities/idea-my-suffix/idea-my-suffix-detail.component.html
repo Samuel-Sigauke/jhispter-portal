@@ -3,9 +3,10 @@
 
 
   <style>
+
     .write-content {
       width: 450px;
-      height:500px;
+      height:50px;
       text-align: center;
       text-decoration-color: #000;
     }
@@ -23,18 +24,27 @@
     .table-responsive{
       border: 0px solid #CCC;
       border-collapse: collapse;
+
     }
+.more{
+  text-align: center;
+
+}
+    .buttons{
+      text-align: center;
+      margin-left: 465px;
+    }
+
     #new_comment_field {
       opacity: 0.7;
     }
-    .btn-primary {
-      color: #fff;
-      background-color: #17a2b8;
-      background-image: linear-gradient(-180deg, #17a2b8 0%, #17a2b8 90%);
-    }
+.js-navigation-container {
+    text-align: center;
+
+}
     .btn{
-    background-color: #650b7a;;
-    background-image: linear-gradient(-180deg, #17a2b8 0%, #17a2b8 90%);
+    background-color: #650b7a;
+    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
       }
     .newComment{
     text-align: center;
@@ -43,7 +53,7 @@
       color:#ffd700;
     }
   </style>
-
+<body>
   <h5><span><b>Idea Detail<b></span></h5>
 
     <div class="alert alert-warning" *ngIf="idea" style="margin:0 auto;">
@@ -80,7 +90,7 @@
                   (onRatingChange)="onRatingChange($event)">
        </star-rating-comp>
      </span>
-<br>
+
 
 <!--<div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"> -->
       <div  style="margin:0 auto;"
@@ -95,33 +105,35 @@
                 placeholder="Leave a comment.."
                 aria-label="Comment body"
                 class="form-control input-contrast comment-form-textarea js-comment-field js-improved-comment-field js-task-list-field js-quick-submit js-size-to-fit js-suggester-field js-quote-selection-target js-session-resumable ">
-        </textarea>
-            <br>
-            <button type="submit" class="btn btn-primary" data-disable-with="" data-disable-invalid="" (click)="sendComment()">
+        </textarea></div>
+                  <br>
+<div class="row">
+
+  <div  class="buttons">
+            <button type="submit" class="btn btn-primary"   data-disable-with="" data-disable-invalid="" (click)="sendComment()">
             Comment
             </button>
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
               <span class=""></span>&nbsp;<span jhiTranslate="entity.action.back"> Back </span>
-            </button>
-            <br>
-            <br>
-            <h5>  {{comments?.length}} Comments  | {{ratings?.length}} Ratings</h5>
+                    </button>
+                  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <h5 >{{comments?.length}} Comments  | {{ratings?.length}} Ratings</h5>
+                </div>
             <p></p>
 
               <ul _ngcontent-c3="" class="js-navigation-container js-active-navigation-container">
-                <li *ngFor="let comment of (comments | limitTo:maxEntries) ;trackBy: trackId" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
+                <span *ngFor="let comment of (comments | limitTo:maxEntries) ;trackBy: trackId" _ngcontent-c3="" class="Box-row Box-row--focus-gray p-0 js-navigation-item js-issue-row ng-star-inserted">
                   <p>
                     <b>{{comment.commentedBy}}</b>
                       {{comment.commentSummary}}
                       <br>
                       {{comment.datePosted | amTimeAgo}}
                   </p>
-                </li>
+                </span>
                   </ul>
-                  <p><div *ngIf="comments?.length > maxEntries" (click)="showEntries()" class="fa fa-right"><a><i> Read More Comments
+                  <p><div *ngIf="comments?.length > maxEntries" (click)="showEntries()" class="more"><a><i> Read More Comments
                   </i><a></div><p>
 
-               </div>
-</div>
+</body>

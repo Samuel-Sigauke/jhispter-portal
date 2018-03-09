@@ -166,6 +166,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.ONE)
         if(this.myrating.ratedBy === this.loginUser.login ){ // the logged in user has rated this idea so we are updating instead of creating new
           // this.myrating.ratingPoints = $event.rating;
+          this.myrating.ratingPoints =  $event.rating;
           this.ratingMySuffixService.update(this.myrating).subscribe((resp) => {
             console.log(resp);
             //this.loadRatings();
@@ -177,7 +178,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         console.log('New Rates',this.newRating)
         let rating = new RatingMySuffix(
           null,
-          this.newRating-1,
+          this.newRating,
           this.loginUser.login,
           new Date(),
           this.idea

@@ -7,6 +7,9 @@ Bootstrap tweaks
 
 body, h1, h2, h3, h4 {
     font-weight: 300;
+    background-color: #fff;
+    background: url("../../content/images/portal3.jpg") no-repeat center top  ;
+    background-size: cover;
 }
 
 a {
@@ -44,7 +47,7 @@ Generic styles
 
 /* other generic styles */
 
-.jh-card {
+/*.jh-card {
     padding: 1.5%;
     //margin-top: 20px;
     color: white;
@@ -54,18 +57,20 @@ Generic styles
 
     //background-color: #111111;
     //color: rgba(255, 255, 255, 0.5);
-    background: url("../../content/images/Yosemite2.jpg") no-repeat center top  ;
-    box-shadow:inset 0 0 0 2000px rgba(112, 48, 121, 0.50);
+  //  background: url("../../content/images/portal2.jpg") no-repeat center top  ;
+    //box-shadow:inset 0 0 0 2000px rgba(112, 48, 121, 0.50);
   //  background: url("../../content/images/port.jpg") no-repeat center top  ;
       //background-color: rgb(17, 17, 17);
     background-size: cover;
 
-}
+}*/
 
 .container-fluid{
   padding-right: 0%;
   padding-left: 0%;
   padding-bottom: 0%;
+  background: url("../../content/images/portal2.jpg") no-repeat center top  ;
+  background-size: cover;
 }
 
 .error {
