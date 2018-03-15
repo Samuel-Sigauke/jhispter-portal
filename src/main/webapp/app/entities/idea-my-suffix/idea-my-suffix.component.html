@@ -1,5 +1,5 @@
 
-
+<!-- <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../innovation-challenge-my-suffix', idea.inovationChallenge ]">{{idea.inovationChallenge?.challengeName}}: </a>-->
 
 <style>
   .btn-primary {
@@ -9,10 +9,12 @@
     margin-top: 1%;
     margin-right: 1%;
   }
-  .form-control, .octicon-search {
+  .form-control , .octicon-search {
   margin-top: 5%;
   }
-
+.Challenge{
+  display:none;
+}
 </style>
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-98cac35b43fab8341490a2623fdaa7b696bbaea87bccf8f485fd5cdb4996cd9b52bdb24709fb3bab0a0dcff4a29187d65028ee693d609ce5c0c3283c77a247a9.css" integrity="sha512-mMrDW0P6uDQUkKJiP9qntpa7rqh7zPj0hf1c20mWzZtSvbJHCfs7qwoNz/SikYfWUCjuaT1gnOXAwyg8d6JHqQ==" media="all" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-95eea2bd803aed490d7f80bcb2ee29159d69b493e4736d7929a32d93940aa8f1e9434a8320f8f574212bb7e0d8635ae95df44a034d231acb434af04089ff8cd4.css" integrity="sha512-le6ivYA67UkNf4C8su4pFZ1ptJPkc215KaMtk5QKqPHpQ0qDIPj1dCErt+DYY1rpXfRKA00jGstDSvBAif+M1A==" media="all" rel="stylesheet" />
@@ -47,9 +49,16 @@
                           </path>
                          </svg>
                       </form>
-
                      </div>
                   </div>
+
+                  <select  class="form-control placeholder"  [(ngModel)]="innovation" (ngModelChange)="serch()"  title="Your Placeholder Text">
+
+                           <option
+                              [ngValue]="inovationChallenge?.challengeName"
+                              *ngFor= "let  inovationChallenge of allChallenges" >{{inovationChallenge?.challengeName}} </option>
+                  </select>
+
                   <div _ngcontent-c3="" class="table-list-header" id="js-issues-toolbar">
                     <div _ngcontent-c3="" class="table-list-filters">
                       <div _ngcontent-c3="" class="table-list-header-toggle states float-left pl-3">
@@ -97,10 +106,9 @@
                       </span>
                     </div>
                     <div _ngcontent-c3="" class="float-left col-9 p-2 lh-condensed">
-
-                      <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]"> {{idea.ideaTitle}}:  </a>
+                      <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">{{idea.ideaTitle}}:  </a>
                       <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">By {{idea.postedBy}}  </a>
-                      <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">{{idea.dateCreated | amTimeAgo}}  </a>
+                      <a _ngcontent-c3="" class="white no-underline h4 js-navigation-open" ng-reflect-router-link="../ticket,1" [routerLink]="['../idea-my-suffix', idea.id ]">{{idea.dateCreated | amTimeAgo}}</a>
                       <span _ngcontent-c3="" class="labels"></span>
                     </div>
 

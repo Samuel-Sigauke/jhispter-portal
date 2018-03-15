@@ -49,11 +49,12 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
     maxEntries=3;
 
     ratings_map= {
-      'ONE':1,
-      'TWO':2,
-      'THREE':3,
-      'FOUR':4,
-      'FIVE':5
+      'ONE':0,
+      'TWO':1,
+      'THREE':2,
+      'FOUR':3,
+      'FIVE':4,
+      'SIX':5
     }
 
     ratings_map_reverse= {
@@ -105,8 +106,8 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         window.history.back();
     }
 
-    loadRatings(){
-        this.ratingMySuffixService.query().subscribe((resp)=>{
+       loadRatings(){
+       this.ratingMySuffixService.query().subscribe((resp)=>{
               console.log('RATINGS', resp.json);
               this.ratings = resp.json.filter((rating)=>{
                   return rating.idea.id=== this.idea.id;
@@ -125,6 +126,7 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
 
              }   //Code to rate ends starts here
             console.log("Checking" , this.myrating);
+            this.myrating.ratingPoints = this.ratings_map[this.myrating.ratingPoints];
        });
     }
 
@@ -161,16 +163,12 @@ export class IdeaMySuffixDetailComponent implements OnInit, OnDestroy {
         });
     }
     onRatingChange = ($event:OnRatingChangeEven) => {
-        console.log('onRatingUpdated $event: ', $event);
+
         console.log('Event.Rating: ', $event.rating);
-        console.log('AAAAAAAAAAAAAAAAAA', RatingPoints.ONE)
-        if(this.myrating.ratedBy === this.loginUser.login ){ // the logged in user has rated this idea so we are updating instead of creating new
-          // this.myrating.ratingPoints = $event.rating;
+        if(this.myrating !== null && this.myrating.ratedBy === this.loginUser.login ){ // the logged in user has rated this idea so we are updating instead of creating new
           this.myrating.ratingPoints =  $event.rating;
           this.ratingMySuffixService.update(this.myrating).subscribe((resp) => {
             console.log(resp);
-            //this.loadRatings();
-          //this.newRating = null;
           });
           return;
         }

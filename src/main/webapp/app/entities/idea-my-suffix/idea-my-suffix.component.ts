@@ -8,7 +8,10 @@ import {CommentMySuffix} from '../comment-my-suffix/comment-my-suffix.model';
 import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.service';
 import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform } from '@angular/core';
+import {InnovationChallengeMySuffix } from '../innovation-challenge-my-suffix/innovation-challenge-my-suffix.model';
+import {InnovationChallengeMySuffixService} from '../innovation-challenge-my-suffix/innovation-challenge-my-suffix.service';
+
 
 @Pipe({ name: 'limitId' })
 export class DataPipe implements PipeTransform {
@@ -28,9 +31,14 @@ export class IdeaMySuffixComponent implements OnInit, OnDestroy {
 ideas: IdeaMySuffix[];
 comments:CommentMySuffix[];
 allIdeas: IdeaMySuffix[];
+inovationChallenge: InnovationChallengeMySuffix[];
+inovationChallenges: InnovationChallengeMySuffix[];
+allChallenges: InnovationChallengeMySuffix[];
 searchString: string;
+serchString: string;
 countComments: any;
 countRating: any;
+innovation: any;
     currentAccount: any;
     eventSubscriber: Subscription;
   matEntries=12;
@@ -41,7 +49,8 @@ countRating: any;
         private eventManager: JhiEventManager,
         private principal: Principal,
         private commentMySuffixService:CommentMySuffixService,
-        private ratingMySuffixService:RatingMySuffixService
+        private ratingMySuffixService:RatingMySuffixService,
+        private innovationChallengeMySuffixService:InnovationChallengeMySuffixService
 
     ) {
     }
@@ -53,6 +62,7 @@ countRating: any;
                this.sortingIdeas();
                this.loadComments();
                this.loadRatings();
+               this.loadInnovations();
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -67,7 +77,7 @@ countRating: any;
     ngOnInit() {
         this.loadAll();
         this.principal.identity().then((account) => {
-            this.currentAccount = account;
+        this.currentAccount = account;
         });
         this.registerChangeInIdeas();
     }
@@ -144,6 +154,29 @@ countRating: any;
 
             console.log(this.ideas);
         }
+        loadInnovations(){
+            this.innovationChallengeMySuffixService.query().subscribe((resp) => {
+                  console.log('AllInnovations', resp.json);
+                  this.allChallenges = resp.json;
+            });
+        }
+
+serch() {
+    console.log("Chiyedza", this.innovation);
+    let _searchString = this.innovation;
+    this.ideas = this.allIdeas.filter((idea) => {
+        console.log("BBhhhB", idea);
+        let challenge = idea.inovationChallenge as InnovationChallengeMySuffix;
+        if ( (challenge === null) || !challenge.challengeName ) {
+            return false;
+        }
+        let searchresult = challenge.challengeName.toUpperCase().search(_searchString.toUpperCase());
+         console.log('Search REsult',searchresult);
+         return searchresult;
+    });
+    console.log(this.ideas);
+}
+
     /*sendDate(){
         let newdate = new IdeaMySuffix(
           null,

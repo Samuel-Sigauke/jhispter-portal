@@ -4,7 +4,7 @@
             "home": {
                 "title": "Posted Ideas",
                 "createLabel": "Post a new Idea",
-                "createOrEditLabel": "Create or edit a Idea"
+                "createOrEditLabel": "Create an Idea"
             },
             "created": "A new Idea is created with identifier {{ param }}",
             "updated": "A Idea is updated with identifier {{ param }}",

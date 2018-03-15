@@ -26,6 +26,19 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
+
+
+
+
+
+body {
+background: url("../../content/images/portal11.jpg") no-repeat center top  ;
+background-size: cover;
+min-height: 100%;
+margin:0;
+
+
+}
 /*.row{
   //background:linear-gradient(rgba(17, 17, 17, 0.25), rgba(17, 17, 17, 0.25)), transparent url("../../content/images/banner.gif");
 background: url("../../content/images/harare.gif") no-repeat center top  ;

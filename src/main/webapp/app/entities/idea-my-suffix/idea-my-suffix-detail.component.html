@@ -32,7 +32,7 @@
 }
     .buttons{
       text-align: center;
-      margin-left: 465px;
+      margin-left: 473px;
     }
 
     #new_comment_field {
@@ -41,6 +41,10 @@
 .js-navigation-container {
     text-align: center;
 
+}
+.img{
+  background: url("../../content/images/portal3.jpg") no-repeat center top ;
+  background-size: cover;
 }
     .btn{
     background-color: #650b7a;
@@ -53,7 +57,7 @@
       color:#ffd700;
     }
   </style>
-<body>
+<body class="img">
   <h5><span><b>Idea Detail<b></span></h5>
 
     <div class="alert alert-warning" *ngIf="idea" style="margin:0 auto;">
@@ -77,7 +81,7 @@
                 </table>
 
             <!--  </div>-->
-            </div>
+          </div>
         <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"></link>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
@@ -87,10 +91,10 @@
                   [starType]="'icon'"
                   [size]="'large'"
                   [rating]="myrating?.ratingPoints"
-                  (onRatingChange)="onRatingChange($event)">
+                  (onClick)="onRatingChange($event)">
        </star-rating-comp>
      </span>
-
+<br>
 
 <!--<div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"> -->
       <div  style="margin:0 auto;"

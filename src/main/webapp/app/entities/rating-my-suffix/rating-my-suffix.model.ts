@@ -1,7 +1,7 @@
 import { BaseEntity } from './../../shared';
 
 export const enum RatingPoints {
-    ONE=0,
+    ONE=1,
     TWO,
     THREE,
     FOUR,

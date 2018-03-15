@@ -4,7 +4,7 @@
             "home": {
                 "title": "Innovation Challenges",
                 "createLabel": "Create a new Innovation Challenge",
-                "createOrEditLabel": "Create or edit a Innovation Challenge"
+                "createOrEditLabel": "Create an Innovation Challenge"
             },
             "created": "A new Innovation Challenge is created with identifier {{ param }}",
             "updated": "A Innovation Challenge is updated with identifier {{ param }}",
