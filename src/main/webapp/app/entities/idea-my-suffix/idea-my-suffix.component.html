@@ -4,16 +4,29 @@
 <style>
   .btn-primary {
     color: #fff;
-    background-color: #650b7a;
-    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
+    background-color: #7a2c8c;
+    background-image: linear-gradient(-180deg, #7a2c8c 0%, #7a2c8c 90%);
     margin-top: 1%;
     margin-right: 1%;
+    border-radius: 12px;
   }
   .form-control , .octicon-search {
   margin-top: 5%;
+  border-radius: 12px;
   }
 .Challenge{
   display:none;
+}
+.placeholder{
+width: 300px;
+height: 35px;
+margin-top: 2.5%;
+border-radius: 12px;
+background-color: #f6f8fa;
+color: #959699;
+}
+.table-list-header{
+  border-radius: 12px;
 }
 </style>
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-98cac35b43fab8341490a2623fdaa7b696bbaea87bccf8f485fd5cdb4996cd9b52bdb24709fb3bab0a0dcff4a29187d65028ee693d609ce5c0c3283c77a247a9.css" integrity="sha512-mMrDW0P6uDQUkKJiP9qntpa7rqh7zPj0hf1c20mWzZtSvbJHCfs7qwoNz/SikYfWUCjuaT1gnOXAwyg8d6JHqQ==" media="all" rel="stylesheet" />
@@ -48,16 +61,19 @@
                           <path _ngcontent-c3="" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z" fill-rule="evenodd">
                           </path>
                          </svg>
-                      </form>
+                      </form> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                      <select  class="placeholder"  [(ngModel)]="innovation" (ngModelChange)="serch()">
+
+                          <option  [value]="innovation">Search for Ideas by Innovation Challenge</option>
+                           <option
+                                [ngValue]="inovationChallenge?.challengeName"
+                                *ngFor= "let  inovationChallenge of allChallenges" >{{inovationChallenge?.challengeName}} </option>
+
+                      </select>
                      </div>
                   </div>
 
-                  <select  class="form-control placeholder"  [(ngModel)]="innovation" (ngModelChange)="serch()"  title="Your Placeholder Text">
-
-                           <option
-                              [ngValue]="inovationChallenge?.challengeName"
-                              *ngFor= "let  inovationChallenge of allChallenges" >{{inovationChallenge?.challengeName}} </option>
-                  </select>
 
                   <div _ngcontent-c3="" class="table-list-header" id="js-issues-toolbar">
                     <div _ngcontent-c3="" class="table-list-filters">
@@ -66,7 +82,7 @@
                           {{ideas?.length}} Ideas
                         </a>
                         <a _ngcontent-c3="" class="btn-link">
-                          <!-- 2 Viewed-->
+                          <!-- 2 Viewed     placeholder="{{'global.select.placeholder' | translate}}"   -->
                         </a>
                       </div>
                       <div _ngcontent-c3="" class="table-list-header-toggle float-right">

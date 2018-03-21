@@ -38,7 +38,7 @@ searchString: string;
 serchString: string;
 countComments: any;
 countRating: any;
-innovation: any;
+innovation: string;
     currentAccount: any;
     eventSubscriber: Subscription;
   matEntries=12;
@@ -80,6 +80,7 @@ innovation: any;
         this.currentAccount = account;
         });
         this.registerChangeInIdeas();
+        this.innovation="Select Innovation";
     }
 
     ngOnDestroy() {
@@ -96,10 +97,10 @@ innovation: any;
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
-    sortingIdeas(){
+      sortingIdeas(){
       this.ideaService.query().subscribe((resp)=>{
-        console.log('rter', resp.json);
-        this.ideas = resp.json.filter((idea) => {
+      console.log('rter', resp.json);
+      this.ideas = resp.json.filter((idea) => {
           return this.ideas;
         });
         this.ideas.sort(
@@ -164,6 +165,9 @@ innovation: any;
 serch() {
     console.log("Chiyedza", this.innovation);
     let _searchString = this.innovation;
+  /*  if ( this.innovation == innovation ){
+      return this.allIdeas;
+    }*/
     this.ideas = this.allIdeas.filter((idea) => {
         console.log("BBhhhB", idea);
         let challenge = idea.inovationChallenge as InnovationChallengeMySuffix;
@@ -172,7 +176,7 @@ serch() {
         }
         let searchresult = challenge.challengeName.toUpperCase().search(_searchString.toUpperCase());
          console.log('Search REsult',searchresult);
-         return searchresult;
+         return searchresult as number >= 0 ;
     });
     console.log(this.ideas);
 }

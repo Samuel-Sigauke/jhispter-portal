@@ -1,10 +1,24 @@
+<style>
+  .jh-create-entity {
+    color: #fff;
+    background-color: #7a2c8c;
+    background-image: linear-gradient(-180deg, #7a2c8c 0%, #7a2c8c 90%);
+    margin-top: 1%;
+    margin-right: 1%;
+    border-radius: 12px;
+  }
+.btn-sm{
+  margin-top: 1%;
+}
+</style>
+
 <div>
     <h2>
-        <span jhiTranslate="innovationPortalApp.innovationChallenge.home.title">Innovation Challenges</span>
+        <span jhiTranslate="innovationPortalApp.innovationChallenge.home.title" style = "margin-top:5%;" >Innovation Challenges</span>
         <button class="btn btn-primary float-right jh-create-entity create-innovation-challenge-my-suffix" [routerLink]="['/', { outlets: { popup: ['innovation-challenge-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="innovationPortalApp.innovationChallenge.home.createLabel">
-            Create new Innovation Challenge
+          Create an Innovation Challenge
             </span>
         </button>
     </h2>

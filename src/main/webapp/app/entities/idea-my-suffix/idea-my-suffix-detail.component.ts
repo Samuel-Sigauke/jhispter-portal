@@ -10,7 +10,7 @@ import {CommentMySuffixService} from '../comment-my-suffix/comment-my-suffix.ser
 import { OnRatingChangeEven } from 'angular-star-rating';
 import {RatingMySuffix, RatingPoints} from '../rating-my-suffix/rating-my-suffix.model';
 import {RatingMySuffixService} from '../rating-my-suffix/rating-my-suffix.service';
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 
 @Pipe({ name: 'summary' })

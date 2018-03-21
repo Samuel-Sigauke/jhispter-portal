@@ -49,6 +49,7 @@
             "email": "Email",
             "email.placeholder": "Your email"
         },
+
         "messages": {
             "info": {
                 "authenticated": {

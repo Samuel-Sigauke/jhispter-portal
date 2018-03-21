@@ -6,21 +6,17 @@
 
 
 <style>
-
 /*.container-fluid{
   background-image: url("../../content/images/portal3.jpg") no-repeat ;
     background-size: cover;
      height: 100%;
      margin: 0px;
 }*/
-
-
-
-
 .alert{
   opacity: 0.60;
   color: #000;
   margin-top:5%;
+  border-radius: 20px;
 
 }
 
@@ -28,6 +24,14 @@
       margin: auto;
       width: 50%;
 
+}
+
+.alert-success{
+opacity: 0.40;
+height: 60px;
+text-align: center;
+margin-top:10%;
+font-weight: bold;
 }
 /*.bg{
   background-image: url("../../content/images/portal3.jpg") no-repeat !important;
@@ -60,7 +64,7 @@
 
 
                                 <span *ngIf="account" jhiTranslate="home.logged.message"
-                                    translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+                                    translateValues="{username: '{{account.login}}'}"><b> You are logged in as User "{{account.login}}". </b> </span>
                             </div>
 
                         <div class="alert alert-warning" *ngSwitchCase="false">

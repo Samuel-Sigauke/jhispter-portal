@@ -47,8 +47,10 @@
   background-size: cover;
 }
     .btn{
-    background-color: #650b7a;
-    background-image: linear-gradient(-180deg, #650b7a 0%, #650b7a 90%);
+    background-color:#7a2c8c;
+    background-image: linear-gradient(-180deg, #7a2c8c 0%, #7a2c8c 90%);
+    border-color: #7a2c8c;
+    border-radius: 12px;
       }
     .newComment{
     text-align: center;
@@ -80,20 +82,22 @@
                   </tr>
                 </table>
 
+                <h5> <b>Rate Idea  </b></h5>
+                <span >
+                  <star-rating-comp
+                            [starType]="'icon'"
+                            [size]="'large'"
+                            [rating]="myrating?.ratingPoints"
+                            (onClick)="onRatingChange($event)">
+                 </star-rating-comp>
+               </span>
+
             <!--  </div>-->
           </div>
         <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet"></link>
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
-      <h5> <b>Rate Idea  </b></h5>
-      <span >
-        <star-rating-comp
-                  [starType]="'icon'"
-                  [size]="'large'"
-                  [rating]="myrating?.ratingPoints"
-                  (onClick)="onRatingChange($event)">
-       </star-rating-comp>
-     </span>
+
 <br>
 
 <!--<div class="comment-body markdown-body js-preview-body" style="min-height: 131px;"> -->
@@ -116,7 +120,7 @@
   <div  class="buttons">
             <button type="submit" class="btn btn-primary"   data-disable-with="" data-disable-invalid="" (click)="sendComment()">
             Comment
-            </button>
+          </button>&nbsp;&nbsp;&nbsp;
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
